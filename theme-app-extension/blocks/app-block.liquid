@@ -1,0 +1,478 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% assign xc_settings = product.metafields.widget.products %}
+
+<style>
+.check_brand{
+  font-size:20px;
+  color:{{ xc_settings.brand_checkbox_color1 }};
+}
+
+  .cross_brand{
+  font-size:20px;
+  color:{{ xc_settings.brand_checkbox_color2 }};
+}
+      .check_competator{
+       font-size:20px;
+      color:{{ xc_settings.competitors_checkbox_color1 }};
+      }
+        .cross_competator{
+       font-size:20px;
+      color:{{ xc_settings.competitors_checkbox_color2 }};
+      }
+
+      .choose-table tbody tr:nth-child(odd) {
+            background-color: {{xc_settings.background_color1}};
+        }
+          .choose-table tbody tr {
+              background: {{xc_settings.background_color2}};
+        }
+
+       .choose-table-mobile tbody tr:nth-child(odd) {
+            background-color: {{xc_settings.background_color1}} !important;
+        }
+          .choose-table-mobile tbody tr {
+              background: {{xc_settings.background_color2}} !important;
+        }
+
+     .page-section.temp1-compare-section table tbody tr:nth-child(odd) {
+        background:  {{xc_settings.background_color1}};
+    }
+          .page-section.temp1-compare-section table tbody tr:nth-child(even) {
+      background:  {{xc_settings.background_color2}};
+    }
+
+  .template-container{
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+  @media screen and (min-width: 768px){
+    .template-container {
+    padding: 0 5rem;
+  }
+
+  }
+
+  </style>
+
+
+  {%  if shop.metafields.usvsthem.setting==1 %}
+    <div class="template-container">
+{% if xc_settings and xc_settings.template_id == 1 %}
+{{ 'template.css' | asset_url | stylesheet_tag }}
+
+  <style>
+      .page-section.temp1-compare-section table td:nth-child(2),
+    .page-section.temp1-compare-section table th:nth-child(2) {
+       background: {{ xc_settings.brand_background1 }};
+
+    }
+  .page-section.temp1-compare-section table tbody tr:nth-child(even) td:nth-child(2) {
+        background: {{ xc_settings.brand_background1 }};
+    }
+    .page-section.temp1-compare-section table tbody tr:nth-child(odd) td:nth-child(2) {
+        background: {{ xc_settings.brand_background2 }};
+    }
+  </style>
+  <div class="page-section temp1-compare-section metafileds-comaparison lazyloaded">
+<table class="custom">
+    <thead>
+
+    <tr>
+        <th></th>
+      <th style="color:{{  xc_settings.text_brand_color  }} ">{{ xc_settings.brand }}</th>
+      {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
+      <th style="color:{{  xc_settings.text_competitor_color  }} ">{{ xc_settings_comp_loop }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+      {% for xc_settings_loop in  xc_settings.items %}
+
+    <tr>
+        <td style="color:{{  xc_settings.text_advantage_color  }} ">
+        {{ xc_settings_loop.advantage  }}
+        </td>
+
+      <td>
+        {% if  xc_settings_loop.brand == true %}
+
+          <i class="fa fa-check check_brand "></i>
+        {% else %}
+          <i class="fa fa-close cross_brand "></i>
+        {% endif %}
+      </td>
+
+         {% for xc_settings_nested_loop in  xc_settings_loop.competitor %}
+
+          <td>
+           {% if  xc_settings_nested_loop == true %}
+           <i class="fa fa-check check_competator "></i>
+        {% else %}
+          <i class="fa fa-close cross_competator "></i>
+        {% endif %}
+    </td>
+           {% endfor %}
+    </tr>
+      {% endfor %}
+
+
+
+
+    </tbody>
+    <tfoot>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tfoot>
+</table>
+</div>
+
+
+  {% elsif xc_settings and xc_settings.template_id == 2 %}
+  {{ 'template2.css' | asset_url | stylesheet_tag }}
+<style>
+          .choose-table-mobile tbody tr:nth-child(even) th:first-child{
+            background: {{ xc_settings.competitor_backgorund1}};
+        }
+        .choose-table-mobile tbody tr:nth-child(odd) th:first-child{
+               background: {{ xc_settings.competitor_backgorund2}};
+        }
+
+  </style>
+
+<div class="stickyTableColumns-mobile" style="overflow-y: auto;">
+    <table class="choose-table-mobile" >
+        <thead>
+        <tr>
+            <th></th>
+      {% for xc_settings_loop in  xc_settings.items %}
+            <th style="color:{{ xc_settings.text_advantage_color  }} ">{{ xc_settings_loop.advantage  }} </th>
+
+        {% endfor %}
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th style="color:{{ xc_settings.text_brand_color  }};background:{{ xc_settings.brand_background1 }} ">{{ xc_settings.brand }}</th>
+           {% for xc_settings_loop in  xc_settings.items %}
+            <td>
+          <span class="choose-table__price">
+          {% if  xc_settings_loop.brand == true %}
+          <i style="font-size:32px" class="fa fa-check-circle check_brand "></i>
+                   {% else %}
+            <i style="font-size:32px" class="fa  fa-times-circle cross_brand "></i>
+            {% endif %}
+          </span>
+        </td>
+     {% endfor %}
+        </tr>
+
+       {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
+         {% assign index=forloop.index %}
+             <tr>
+                <th style="color:{{ xc_settings.text_competitor_color  }}" >{{ xc_settings_comp_loop }}</th>
+            {% for xc_settings_loop in  xc_settings.items %}
+              {% for xc_settings_nested_loop in  xc_settings_loop.competitor %}
+
+                {% if index==forloop.index %}
+
+                           <td>
+                        <span class="choose-table__price">
+                         {% if  xc_settings_nested_loop == true %}
+                         <i class="fa fa-check-circle check_competator "></i>
+                      {% else %}
+                        <i class="fa  fa-times-circle cross_competator "></i>
+                      {% endif %}
+                      </span></td>
+                  {% endif %}
+              {% endfor %}
+                {% endfor %}
+               </tr>
+             {% endfor %}
+
+
+        </tbody>
+    </table></div>
+
+  {% comment %}
+<div class="stickyTableColumns-scroll" style="overflow-y: auto;">
+    <table class="choose-table" style="margin: 0 auto;max-width: 800px;">
+        <thead>
+        <tr>
+            <th></th>
+          <th>{{ xc_settings.brand }}</th>
+        {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
+      <th>{{ xc_settings_comp_loop }}</th>
+        {% endfor %}
+
+
+  </tr>
+        </thead>
+        <tbody>
+      {% for xc_settings_loop in  xc_settings.items %}
+        <tr>
+            <th style="color:{{ xc_settings_loop.advantage_color_value  }} ">{{ xc_settings_loop.advantage  }} </th>
+            <td><span class="choose-table__price">
+          {% if  xc_settings_loop.brand == true %}
+          <i class="fa fa-check-circle check_brand "></i>
+                   {% else %}
+            <i class="fa  fa-times-circle cross_brand "></i>
+            {% endif %}
+        </span></td>
+
+          {% for xc_settings_nested_loop in  xc_settings_loop.competitor %}
+          <td>
+          <span class="choose-table__price">
+           {% if  xc_settings_nested_loop == true %}
+           <i class="fa fa-check-circle check_competator "></i>
+        {% else %}
+          <i class="fa  fa-times-circle cross_competator "></i>
+        {% endif %}
+        </span></td>
+           {% endfor %}
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table></div>
+
+{% endcomment %}
+  {% elsif xc_settings and xc_settings.template_id == 3 %}
+  {{ 'template3.css' | asset_url | stylesheet_tag }}
+
+  <style>
+
+    @font-face {
+      font-family: 'Euclid Flex';
+      font-weight: normal;
+      src: url(https://sharma.media/unbounce-fonts/hydrant/EuclidFlex.woff2) format('woff2');
+  }
+
+      @font-face {
+      font-family: 'Euclid Flex';
+      font-weight: bold;
+      src: url(https://sharma.media/unbounce-fonts/hydrant/EuclidFlexBold.woff2) format('woff2');
+  }
+
+        .choose-table-temp3 tbody tr th{
+        font-weight: normal;
+      font-family: 'Euclid Flex';
+      font-size: 24px;
+      font-style: normal;
+        }
+
+          @media only screen and (max-width: 768px)  {
+                .choose-table-temp3 tbody tr th{
+          font-size: 18px;
+                }
+          }
+       .choose-table-temp3 tbody tr td:nth-child(2){
+          background: {{ xc_settings.background_color1}};
+       }
+      .choose-table-temp3 tbody tr td:nth-child(3){
+     background: {{ xc_settings.background_color2}};
+      }
+
+      .choose-table-temp3 tr th:nth-child(2){
+         background: {{ xc_settings.background_color1}};
+           }
+          .choose-table-temp3 tr th:nth-child(3){
+            background: {{ xc_settings.background_color2}};
+              }
+
+            .tick_color_competitor{
+                fill:{{ xc_settings.competitors_checkbox_color1 }};
+                 }
+                .cross_color_competitor{
+                        fill:{{ xc_settings.competitors_checkbox_color2 }};
+                      }
+
+                .tick_color_brand{
+                  fill:{{ xc_settings.brand_checkbox_color1 }};
+                }
+                .cross_color_brand{
+                  fill:{{ xc_settings.brand_checkbox_color2 }};
+                }
+  </style>
+<div class="stickyTableColumns-scroll" style="overflow-y: auto;">
+    <table class="choose-table-temp3" >
+    <thead>
+    <tr>
+        <th></th>
+  <th style="color:{{ xc_settings.text_brand_color  }} ">{{ xc_settings.brand }}</th>
+       {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
+      <th  style="color:{{ xc_settings.text_competitor_color  }} ">{{ xc_settings_comp_loop }}</th>
+        {% endfor %}
+    </thead>
+    <tbody>
+          {% for xc_settings_loop in  xc_settings.items %}
+    <tr>
+        <th >
+           <div style="color:{{ xc_settings.text_advantage_color  }} ">  {{ xc_settings_loop.advantage  }}</div>
+
+            </th>
+  <td>
+        {% if  xc_settings_loop.text_icon == 'icon' %}
+        {% if  xc_settings_loop.brand == true %}
+
+             <span class='tick_color_brand'>
+                       <svg width="40pt" height="40pt" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+           <path d="m491.79 181.89c4.6211 4.1211 5.1172 11.176 1.1172 15.906l-183.01 212.8c-2.1289 2.4688-5.2461 3.8633-8.5117 3.8047-3.2969 0.003906-6.4219-1.4766-8.5117-4.0312l-85.793-100.8h0.003906c-1.9414-2.2383-2.8945-5.168-2.6406-8.1211 0.25391-2.9531 1.6875-5.6797 3.9844-7.5586 2.2383-1.9414 5.168-2.8906 8.1211-2.6367 2.9531 0.25 5.6797 1.6875 7.5586 3.9805l77.281 90.719 174.5-202.95-0.003906 0.003906c4.1211-4.6211 11.176-5.1172 15.906-1.1211zm93.406 98.113c0 62.379-24.777 122.2-68.887 166.31s-103.93 68.887-166.31 68.887-122.2-24.777-166.31-68.887-68.887-103.93-68.887-166.31 24.777-122.2 68.887-166.31 103.93-68.887 166.31-68.887c62.359 0.058594 122.15 24.859 166.25 68.953 44.094 44.098 68.895 103.89 68.953 166.25zm-22.398 0c0-56.438-22.422-110.57-62.328-150.47s-94.035-62.328-150.47-62.328-110.57 22.422-150.47 62.328-62.328 94.035-62.328 150.47 22.422 110.57 62.328 150.47 94.035 62.328 150.47 62.328c56.418-0.058593 110.51-22.5 150.41-62.395s62.336-93.988 62.395-150.41z"/>
+          </svg>
+           </span>
+        {% else %}
+            <span class='cross_color_brand'>
+              <svg width="40pt" height="40pt" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+               <path d="m570.64 484.96c2.1641 2.0312 3.3945 4.8672 3.3945 7.8398 0 2.9688-1.2305 5.8086-3.3945 7.8398-2.0312 2.1641-4.8711 3.3945-7.8398 3.3945-2.9727 0-5.8086-1.2305-7.8398-3.3945l-204.96-204.74-204.96 204.74c-2.0312 2.1641-4.8672 3.3945-7.8398 3.3945-2.9688 0-5.8086-1.2305-7.8398-3.3945-2.1641-2.0312-3.3945-4.8711-3.3945-7.8398 0-2.9727 1.2305-5.8086 3.3945-7.8398l204.73-204.96-204.73-204.96c-4.3281-4.3281-4.3281-11.348 0-15.68 4.332-4.3281 11.352-4.3281 15.68 0l204.96 204.73 204.96-204.73c4.3281-4.3281 11.348-4.3281 15.68 0 4.3281 4.332 4.3281 11.352 0 15.68l-204.74 204.96z"/>
+              </svg>
+               </span>
+
+          {% endif %}
+          {% else %}
+          <h3 style="font-weight:bold;margin:0;color:{{ xc_settings.text_brand_color_inside }}">{{ xc_settings_loop.brand }}</h3>
+        {% endif %}
+      </td>
+        {% for xc_settings_nested_loop in  xc_settings_loop.competitor %}
+          <td>
+
+              {% if  xc_settings_loop.text_icon == 'icon' %}
+           {% if  xc_settings_nested_loop == true %}
+         <span class='tick_color_competitor'>
+                         <svg width="40pt" height="40pt" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+             <path d="m491.79 181.89c4.6211 4.1211 5.1172 11.176 1.1172 15.906l-183.01 212.8c-2.1289 2.4688-5.2461 3.8633-8.5117 3.8047-3.2969 0.003906-6.4219-1.4766-8.5117-4.0312l-85.793-100.8h0.003906c-1.9414-2.2383-2.8945-5.168-2.6406-8.1211 0.25391-2.9531 1.6875-5.6797 3.9844-7.5586 2.2383-1.9414 5.168-2.8906 8.1211-2.6367 2.9531 0.25 5.6797 1.6875 7.5586 3.9805l77.281 90.719 174.5-202.95-0.003906 0.003906c4.1211-4.6211 11.176-5.1172 15.906-1.1211zm93.406 98.113c0 62.379-24.777 122.2-68.887 166.31s-103.93 68.887-166.31 68.887-122.2-24.777-166.31-68.887-68.887-103.93-68.887-166.31 24.777-122.2 68.887-166.31 103.93-68.887 166.31-68.887c62.359 0.058594 122.15 24.859 166.25 68.953 44.094 44.098 68.895 103.89 68.953 166.25zm-22.398 0c0-56.438-22.422-110.57-62.328-150.47s-94.035-62.328-150.47-62.328-110.57 22.422-150.47 62.328-62.328 94.035-62.328 150.47 22.422 110.57 62.328 150.47 94.035 62.328 150.47 62.328c56.418-0.058593 110.51-22.5 150.41-62.395s62.336-93.988 62.395-150.41z"/>
+            </svg>
+             </span>
+        {% else %}
+               <span class='cross_color_competitor'>
+                <svg width="40pt" height="40pt" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+                 <path d="m570.64 484.96c2.1641 2.0312 3.3945 4.8672 3.3945 7.8398 0 2.9688-1.2305 5.8086-3.3945 7.8398-2.0312 2.1641-4.8711 3.3945-7.8398 3.3945-2.9727 0-5.8086-1.2305-7.8398-3.3945l-204.96-204.74-204.96 204.74c-2.0312 2.1641-4.8672 3.3945-7.8398 3.3945-2.9688 0-5.8086-1.2305-7.8398-3.3945-2.1641-2.0312-3.3945-4.8711-3.3945-7.8398 0-2.9727 1.2305-5.8086 3.3945-7.8398l204.73-204.96-204.73-204.96c-4.3281-4.3281-4.3281-11.348 0-15.68 4.332-4.3281 11.352-4.3281 15.68 0l204.96 204.73 204.96-204.73c4.3281-4.3281 11.348-4.3281 15.68 0 4.3281 4.332 4.3281 11.352 0 15.68l-204.74 204.96z"/>
+                </svg>
+                 </span>
+        {% endif %}
+          {% else %}
+          <h3 style="font-weight:bold;margin:0;color:{{ xc_settings.text_competitor_color_inside }}">{{ xc_settings_nested_loop }}</h3>
+           {% endif %}
+
+        </td>
+           {% endfor %}
+
+
+    </tr>
+      {%  endfor %}
+
+    </tbody>
+</table></div>
+
+  {% elsif xc_settings and xc_settings.template_id == 4 %}
+  {{ 'template4.css' | asset_url | stylesheet_tag }}
+
+<style>
+
+        .choose-table-temp4 tr th:nth-child(odd){
+            background: {{ xc_settings. background_color1}};
+        }
+        .choose-table-temp4 tbody tr td:nth-child(odd){
+          background: {{ xc_settings. background_color1}};
+        }
+
+        .choose-table-temp4 tr th:nth-child(even){
+           background: {{ xc_settings. background_color2}};
+        }
+        .choose-table-temp4 tbody tr td:nth-child(even){
+           background: {{ xc_settings. background_color2}};
+        }
+
+  </style>
+
+  <div class="stickyTableColumns-scroll" style="overflow-y: auto;">
+    <table class="choose-table-temp4" >
+        <thead>
+        <tr>
+
+           <th style="color:{{ xc_settings.text_advantage_color  }} ">Advantages</th>
+            <th style="color:{{ xc_settings.text_brand_color  }} ">{{ xc_settings.brand }}</th>
+        {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
+      <th style="color:{{ xc_settings.text_competitor_color  }} " >{{ xc_settings_comp_loop }}</th>
+        {% endfor %}
+
+        </tr>
+        </thead>
+        <tbody>
+          {% for xc_settings_loop in  xc_settings.items %}
+        <tr>
+
+            <td style="color:{{ xc_settings.text_advantage_color  }} ">
+                {{ xc_settings_loop.advantage  }}
+            <td>
+             {% if  xc_settings_loop.text_icon == 'icon' %}
+            {% if  xc_settings_loop.brand == true %}
+
+            <i class="fa fa-check-circle check_brand "></i>
+              {% else %}
+            <i class="fa  fa-times-circle cross_brand "></i>
+          {% endif %}
+                 {% else %}
+              <h3 style="font-weight:bold;margin:0;color:{{ xc_settings.text_brand_color_inside }}">{{  xc_settings_loop.brand }}</h3>
+                {% endif %}
+               </td>
+
+          {% for xc_settings_nested_loop in  xc_settings_loop.competitor %}
+          <td>
+           {% if  xc_settings_loop.text_icon == 'icon' %}
+           {% if  xc_settings_nested_loop == true %}
+    <i class="fa fa-check-circle check_competator "></i>
+        {% else %}
+        <i class="fa  fa-times-circle cross_competator "></i>
+        {% endif %}
+                {% else %}
+         <h3 style="font-weight:bold;margin:0;color:{{ xc_settings.text_competitor_color_inside }}">{{ xc_settings_nested_loop }}</h3>
+                {% endif %}
+             </td>
+           {% endfor %}
+
+        </tr>
+          {% endfor %}
+
+        </tbody>
+    </table></div>
+
+{% endif %}
+    </div>
+{% endif %}
+<script>
+
+if ('undefined' == typeof window.jQuery) {
+    var script_cdn = document.createElement('script');
+    script_cdn.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+    document.getElementsByTagName('body')[0].appendChild(script_cdn);
+}
+
+setTimeout(my_fun, 1000);
+function my_fun() {
+console.log('monday12');
+        $.ajax({
+
+            url: 'https://phpstack-899954-3189251.cloudwaysapps.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
+            type: 'GET',
+            success:function(data){
+            },
+        });
+
+}
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "Us vs Them",
+    "target": "section",
+    "templates": ["product"]
+
+  }
+{% endschema %}
