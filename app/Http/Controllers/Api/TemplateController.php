@@ -1735,7 +1735,9 @@ dd(2);
     public function CheckTrial(Request $request){
 
         $shop = User::where('name', $request->shop_name)->first();
+
         $charge=Charge::where('user_id',$shop->id)->latest()->first();
+
 
         $user_template_product=UserTemplateProduct::where('shop_id',$shop->id)->first();
         if($user_template_product){

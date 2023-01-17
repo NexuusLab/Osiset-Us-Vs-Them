@@ -12,17 +12,17 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::fallback(function (Request $request) {
-
-
-    return view('welcome', [
-        'shop' => $request->shop,
-        'host' => $request->host,
-        'apiKey' => env('APP_API_KEY'),
-
-    ]);
-//    return view('welcome');
-})->middleware(['verify.shopify','billable']);
+//Route::fallback(function (Request $request) {
+//
+//
+//    return view('welcome', [
+//        'shop' => $request->shop,
+//        'host' => $request->host,
+//        'apiKey' => env('APP_API_KEY'),
+//
+//    ]);
+////    return view('welcome');
+//})->middleware(['verify.shopify','billable']);
 
 Route::get('/', function (Request $request) {
 

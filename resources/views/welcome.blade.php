@@ -26,8 +26,9 @@
     </head>
     <body>
 
-    <div id="root" data-shop="{{$shop}}" data-host="{{$host}}" data-api-key="{{$apiKey}}"></div>
+    <div id="root" data-shop="{{\Illuminate\Support\Facades\Auth::user()->name}}" data-host="{{$host}}" data-api-key="{{$apiKey}}"></div>
     </body>
+
 <script src="{{asset('js/app.js')}}?date={{ now() }}"></script>
     @if(\Osiset\ShopifyApp\Util::getShopifyConfig('appbridge_enabled'))
         <script
@@ -38,7 +39,11 @@
             @if(\Osiset\ShopifyApp\Util::getShopifyConfig('turbo_enabled'))
             data-turbolinks-eval="false"
             @endif
+
+
+
         >
+
             var AppBridge = window['app-bridge'];
             var actions = AppBridge.actions;
             var utils = window['app-bridge-utils'];
