@@ -517,7 +517,7 @@ export function Dashboard() {
                 templateTable?.length < 1 ?
                     <Templates /> :
                     <Page
-                        title="Us vs Them"
+                        // title="Us vs Them"
                         fullWidth
                     // titleMetadata={
                     //     <>
@@ -550,15 +550,12 @@ export function Dashboard() {
                                                     </List.Item>
                                                 </List>
                                                 <div className='Polaris-Banner__Actions'>
-                                                    <div className='Polaris-ButtonGroup'>
-                                                        <div className='Polaris-ButtonGroup__Item'>
-                                                            <div className='Polaris-Banner__PrimaryAction'>
-                                                                <button className='Polaris-Banner__Button'>
-                                                                    <a href={onlineStoreUrl} target='_blank'>Go to password page</a>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
+                                                    <a href={onlineStoreUrl} target='_blank'>
+                                                    <Button primary>
+                                                        Go to password page
+                                                    </Button>
+                                                    </a>
                                                 </div>
                                             </Banner>
                                             :
@@ -575,15 +572,11 @@ export function Dashboard() {
                                                     </List.Item>
                                                 </List>
                                                 <div className='Polaris-Banner__Actions'>
-                                                    <div className='Polaris-ButtonGroup'>
-                                                        <div className='Polaris-ButtonGroup__Item'>
-                                                            <div className='Polaris-Banner__PrimaryAction'>
-                                                                <button className='Polaris-Banner__Button'>
-                                                                    <a href={onlineStoreUrl} target='_blank'>Go to online store</a>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <a href={onlineStoreUrl} target='_blank'>
+                                                        <Button primary>
+                                                            Go to online store
+                                                        </Button>
+                                                    </a>
                                                 </div>
                                             </Banner>
                                         }

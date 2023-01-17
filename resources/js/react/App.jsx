@@ -21,8 +21,8 @@ export default function App({ shop, host, apiKey }) {
 
     // const url = 'https://us-vs-them.test/api'
     // const url = 'https://osisetus.test/api'
-    const url='https://phpstack-899954-3189251.cloudwaysapps.com/api';
-    //  const url='https://usvsthemapp.com/api';
+    // const url='https://phpstack-899954-3189251.cloudwaysapps.com/api';
+     const url='https://usvsthemapp.com/api';
 
     // useEffect(() => {
     //     console.log('activePage: ', activePage);
