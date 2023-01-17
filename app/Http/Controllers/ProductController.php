@@ -211,6 +211,8 @@ class ProductController extends Controller
         // Get the shop
         $shop = $shopQuery->getByDomain(ShopDomain::fromNative($request->query('shop')));
 
+
+
         // Activate the plan and save
         $result = $activatePlan(
             $shop->getId(),
