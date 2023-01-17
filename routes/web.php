@@ -28,7 +28,7 @@ Route::get('/', function (Request $request) {
 
 
     return view('welcome', [
-        'shop' => $request->shop,
+        'shop' => \Illuminate\Support\Facades\Auth::user()->name,
         'host' => $request->host,
         'apiKey' => env('APP_API_KEY'),
 

@@ -212,7 +212,6 @@ class ProductController extends Controller
         $shop = $shopQuery->getByDomain(ShopDomain::fromNative($request->query('shop')));
 
 
-
         // Activate the plan and save
         $result = $activatePlan(
             $shop->getId(),
@@ -223,6 +222,7 @@ class ProductController extends Controller
         // Go to homepage of app
         return Redirect::route('home', [
             'shop' => $shop->getDomain()->toNative(),
+
         ]);
     }
 }
