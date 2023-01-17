@@ -28,7 +28,7 @@
 
     <div id="root" data-shop="{{$shop}}" data-host="{{$host}}" data-api-key="{{$apiKey}}"></div>
     </body>
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/app.js')}}?date={{ now() }}"></script>
     @if(\Osiset\ShopifyApp\Util::getShopifyConfig('appbridge_enabled'))
         <script
             src="https://unpkg.com/@shopify/app-bridge{{ \Osiset\ShopifyApp\Util::getShopifyConfig('appbridge_version') ? '@'.config('shopify-app.appbridge_version') : '' }}"></script>
