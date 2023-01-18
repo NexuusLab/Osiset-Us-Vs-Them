@@ -52,9 +52,12 @@ class ProductUpdateJob implements ShouldQueue
         // Convert domain
         $this->shopDomain = ShopDomain::fromNative($this->shopDomain);
         $shop = User::where('name', $this->shopDomain->toNative())->first();
-        $product = json_decode(json_encode($this->data), false);
-        $productcontroller = new ProductController();
-        $productcontroller->createShopifyProducts($product, $shop);
+        if($shop) {
+            $product = json_decode(json_encode($this->data), false);
+            $productcontroller = new ProductController();
+            $productcontroller->createShopifyProducts($product, $shop);
+        }
+        return true;
 
         // Do what you wish with the data
         // Access domain name as $this->shopDomain->toNative()
