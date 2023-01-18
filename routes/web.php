@@ -61,4 +61,10 @@ Route::get('/testing', function() {
     dd($response);
 })->name('getwebbhook');
 
+Route::get('/webhooks/product-update', function() {
+
+
+  return true;
+});
+
 Route::get('/update-count',[App\Http\Controllers\ProductController::class,'UpdateCount']);
