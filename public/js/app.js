@@ -25883,7 +25883,7 @@ function Dashboard() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_shopify_polaris__WEBPACK_IMPORTED_MODULE_10__.Text, {
                   variant: "bodyMd",
                   as: "p",
-                  children: "Get Upto ".concat(planUsageLimit, " monthly views")
+                  children: "Get up to ".concat(planUsageLimit, " monthly views")
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "ProgressBar",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {

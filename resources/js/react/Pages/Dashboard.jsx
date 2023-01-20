@@ -626,7 +626,7 @@ export function Dashboard() {
                                                     Basic Plan
                                                 </Text>
                                                 <Text variant="bodyMd" as="p">
-                                                    {`Get Upto ${planUsageLimit} monthly views`}
+                                                    {`Get up to ${planUsageLimit} monthly views`}
                                                 </Text>
                                                 <div className='ProgressBar'>
                                                     <div className='ProgressBar-Value'>
