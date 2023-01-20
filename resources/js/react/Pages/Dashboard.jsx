@@ -80,7 +80,7 @@ export function Dashboard() {
                 `${url}/check-trial?shop_name=${host}`
             )
             .then(res => {
-                console.log('plan data response', res);
+                // console.log('plan data response', res);
                 setAppEnable(res.data.result.app_status)
                 setAppError(res.data.result.app_error)
                 setPlanName(res.data.result.plan_name)
@@ -108,7 +108,7 @@ export function Dashboard() {
                 `${url}/current-templates?shop_name=${host}`
             )
             .then(res => {
-                console.log('templates tables response', res.data.result);
+                // console.log('templates tables response', res.data.result);
                 setTemplateTable(res.data.result);
 
 
@@ -288,7 +288,7 @@ export function Dashboard() {
                 `${url}/products?user_template_id=${id}&shop_name=${host}`
             )
             .then(res => {
-                console.log('select products response', res.data.result);
+                // console.log('select products response', res.data.result);
                 let arr = []
                 let arr2 = []
                 res.data.result?.map((item) => {
@@ -333,7 +333,7 @@ export function Dashboard() {
         };
         try {
             const response = await axios.post(`${url}/selected-products`, data)
-            console.log('submit products response', response);
+            // console.log('submit products response', response);
             setBtnLoading(false)
             setProductsModal(false);
             setProductsToastActive(!productsToastActive)
@@ -544,11 +544,9 @@ export function Dashboard() {
                                                 status="warning"
                                                 onDismiss={() => setAppEnable(true)}
                                             >
-                                                <List>
-                                                    <List.Item>
-                                                        {`Go to Sales Channel -> Online Store -> Preferences and remove the password`}
-                                                    </List.Item>
-                                                </List>
+
+                                                <p>{`Go to Sales Channel -> Online Store -> Preferences and remove the password`}</p>
+                                                  <br/>
                                                 <div className='Polaris-Banner__Actions'>
 
                                                     <a href={onlineStoreUrl} target='_blank'>
@@ -564,13 +562,13 @@ export function Dashboard() {
                                                 status="warning"
                                                 onDismiss={() => setAppEnable(true)}
                                             >
-                                                <List>
-                                                    <List.Item>
-                                                        In order for your widgets to work on your storefront, go to your
+
+                                               <p>         In order for your widgets to work on your storefront, go to your
                                                         online store editor
                                                         and turn on the forms theme app embed.
-                                                    </List.Item>
-                                                </List>
+                                               </p>
+                                                <br/>
+
                                                 <div className='Polaris-Banner__Actions'>
                                                     <a href={onlineStoreUrl} target='_blank'>
                                                         <Button primary>

@@ -60,7 +60,7 @@ export function TemplatePage3() {
     };
 
     useEffect(() => {
-        console.log('templateTitleWeight',templateTitleWeight );
+        // console.log('templateTitleWeight',templateTitleWeight );
     }, [templateTitleWeight])
 
   const handleTemplateName = useCallback((value) => setTemplateName(value), []);
@@ -98,7 +98,7 @@ export function TemplatePage3() {
         `${url}/template-data?user_template_id=${templateUserId}&shop_name=${host}`
       )
       .then(res => {
-        console.log('table data response', res.data.result);
+        // console.log('table data response', res.data.result);
         setTemplateName(res.data.result.template_name)
         setTemplateTitle(res.data.result.template_title)
           setRangeValue(res.data.result.title_font_size)
@@ -368,7 +368,7 @@ export function TemplatePage3() {
 
     try {
       const response = await axios.post(`${url}/step-2`, data)
-      console.log('submit template response ', response);
+      // console.log('submit template response ', response);
       setBtnLoading(false)
       setSuccessToast(true)
       // if (appEnable) {

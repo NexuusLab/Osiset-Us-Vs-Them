@@ -40,7 +40,7 @@ export function TemplatePage1() {
                 `${url}/products?user_template_id=${id}&shop_name=${host}`
             )
             .then(res => {
-                console.log('select products response', res.data.result);
+                // console.log('select products response', res.data.result);
                 let arr = []
                 let arr2 = []
                 res.data.result?.map((item) => {
@@ -84,7 +84,7 @@ export function TemplatePage1() {
         };
         try {
             const response = await axios.post(`${url}/selected-products`, data)
-            console.log('submit products response', response);
+            // console.log('submit products response', response);
             setBtnLoading(false)
             setProductsModal(false);
             setProductsToastActive(!productsToastActive)

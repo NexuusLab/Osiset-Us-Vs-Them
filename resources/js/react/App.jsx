@@ -32,7 +32,7 @@ export default function App({ shop, host, apiKey }) {
 
 
     useEffect(() => {
-        console.log('config: ', config);
+        // console.log('config: ', config);
 
     }, [config])
     return(

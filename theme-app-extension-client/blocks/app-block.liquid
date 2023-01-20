@@ -60,7 +60,9 @@
 
 {% if xc_settings and xc_settings.template_id == 1 %}
 {{ 'template.css' | asset_url | stylesheet_tag }}
+  {% if xc_settings.title_template_status == 1 %}
  <h1 style="text-align:center;font-size:{{ xc_settings.title_font_size }}px;font-weight:{{ xc_settings.title_font_weight }};">{{ xc_settings.title }}</h1>
+   {% endif %}
    <div class="template-container" id="us-vs-them-block">
   <style>
       .page-section.temp1-compare-section table td:nth-child(2),
@@ -155,7 +157,9 @@
 
   {% elsif xc_settings and xc_settings.template_id == 2 %}
   {{ 'template2.css' | asset_url | stylesheet_tag }}
+    {% if xc_settings.title_template_status == 1 %}
  <h1 style="text-align:center;font-size:{{ xc_settings.title_font_size }}px;font-weight:{{ xc_settings.title_font_weight }};">{{ xc_settings.title }}</h1>
+     {% endif %}
      <div class="template-container" id="us-vs-them-block">
 <style>
           .choose-table-mobile tbody tr:nth-child(even) th:first-child{
@@ -307,7 +311,9 @@
 
   {% elsif xc_settings and xc_settings.template_id == 3 %}
   {{ 'template3.css' | asset_url | stylesheet_tag }}
+    {% if xc_settings.title_template_status == 1 %}
    <h1 style="text-align:center;font-size:{{ xc_settings.title_font_size }}px;font-weight:{{ xc_settings.title_font_weight }};">{{ xc_settings.title }}</h1>
+    {% endif %}
    <div class="template-container" style="max-width:80rem; id="us-vs-them-block">
   <style>
   @font-face {
@@ -440,7 +446,9 @@
 </div>
   {% elsif xc_settings and xc_settings.template_id == 4 %}
   {{ 'template4.css' | asset_url | stylesheet_tag }}
+    {% if xc_settings.title_template_status == 1 %}
   <h1 style="text-align:center;font-size:{{ xc_settings.title_font_size }}px;font-weight:{{ xc_settings.title_font_weight }};">{{ xc_settings.title }}</h1>
+  {% endif %}
    <div class="template-container" id="us-vs-them-block">
 <style>
 
@@ -545,7 +553,7 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('tuesday');
+console.log('friday');
         $.ajax({
 
             url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',

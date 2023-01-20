@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Page, Layout, Card, MediaCard, Button, Loading, Link, Toast } from '@shopify/polaris';
+import {Page, Layout, Card, MediaCard, Button, Loading, Link, Toast, Banner, List} from '@shopify/polaris';
 import { AppContext } from '../Context'
 import axios from "axios";
 // import createApp from '@shopify/app-bridge/development';
@@ -14,6 +14,7 @@ export function TemplatePage4() {
     const [onlineStoreUrl, setOnlineStoreUrl] = useState()
     const [appEnable, setAppEnable] = useState(false)
     const [btnloading, setBtnLoading] = useState(false)
+    const [appError, setAppError] = useState(true)
     const [loading, setLoading] = useState(false)
     const [appStatusToast, setAppStatusToast] = useState(false);
 
@@ -44,6 +45,7 @@ export function TemplatePage4() {
             .then(res => {
                 setAppEnable(res.data.result.app_status)
                 setOnlineStoreUrl(res.data.result.link)
+                setAppError(res.data.result.app_error)
                 setLoading(false)
 
             })
@@ -90,19 +92,67 @@ export function TemplatePage4() {
                 <Page fullWidth>
                     <Layout>
                         <Layout.Section fullWidth>
-                            <Card sectioned>
-                                <h5>Display the Tables on your Product Page</h5>
-                                <p>
-                                    If your theme uses the Online Store 2.0 system, you can add the Us vs Them app block and place the tables on the product page
-                                </p>
-                                <br />
+                            {/*<Card sectioned>*/}
+
+                            {/*    <h5>Display the Tables on your Product Page</h5>*/}
+                            {/*    <p>*/}
+                            {/*        If your theme uses the Online Store 2.0 system, you can add the Us vs Them app block and place the tables on the product page*/}
+                            {/*    </p>*/}
+                            {/*    <br />*/}
 
 
-                                <a href={onlineStoreUrl} target='_blank'>
-                                    <Button>Go to App Embed</Button>
-                                </a>
+                            {/*    <a href={onlineStoreUrl} target='_blank'>*/}
+                            {/*        <Button>Go to App Embed</Button>*/}
+                            {/*    </a>*/}
 
-                            </Card>
+                            {/*</Card>*/}
+
+                            {!appEnable &&
+                                <div className='App-Banner template-page-4'>
+                                    {appError ?
+                                        <Banner
+                                            title="Your Store is Password Protected"
+                                            status="warning"
+                                            // onDismiss={() => setAppEnable(true)}
+                                        >
+
+                                            <p> {`Go to Sales Channel -> Online Store -> Preferences and remove the password`} </p>
+                                            <br/>
+                                            <div className='Polaris-Banner__Actions'>
+
+                                                <a href={onlineStoreUrl} target='_blank'>
+                                                    <Button primary>
+                                                        Go to password page
+                                                    </Button>
+                                                </a>
+                                            </div>
+                                        </Banner>
+                                        :
+                                        <Banner
+                                            title="Your Us vs Them Widget was created. Now install the forms theme app embed."
+                                            status="warning"
+                                            onDismiss={() => setAppEnable(true)}
+                                        >
+
+                                            <p> In order for your widgets to work on your storefront, go to your
+                                                    online store editor
+                                                    and turn on the forms theme app embed.</p>
+
+                                            <br/>
+
+                                            <div className='Polaris-Banner__Actions'>
+                                                <a href={onlineStoreUrl} target='_blank'>
+                                                    <Button primary>
+                                                        Go to online store
+                                                    </Button>
+                                                </a>
+                                            </div>
+                                        </Banner>
+                                    }
+
+                                </div>
+                            }
+
                         </Layout.Section>
 
                         <Layout.Section fullWidth>
