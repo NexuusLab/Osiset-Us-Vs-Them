@@ -1525,6 +1525,10 @@
 
 }
 
+.Theme3-Pc-Table .Polaris-IndexTable__Table .Polaris-IndexTable__TableHeading:first-child,
+.Theme3-Mobile-Table .Polaris-IndexTable__Table .Polaris-IndexTable__TableHeading:first-child{
+    background-color:transparent;
+}
 /* .Template-Page3 .Advantages-Content-Section .Polaris-Layout .Polaris-Layout__Section:first-child{
     min-width: 35%;
     max-width: 35%;
