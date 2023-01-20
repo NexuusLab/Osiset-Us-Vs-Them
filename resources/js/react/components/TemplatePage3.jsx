@@ -17,6 +17,8 @@ export function TemplatePage3() {
   const [btnloading, setBtnLoading] = useState(false)
   const [templateName, setTemplateName] = useState();
   const [templateTitle, setTemplateTitle] = useState();
+  const [titleTemplateStatus, setTitleTemplateStatus] = useState(true);
+
     const [rangeValue, setRangeValue] = useState(40);
   const [templateTitleWeight, setTemplateTitleWeight] = useState();
   const [yourBrand, setYourBrand] = useState();
@@ -47,6 +49,10 @@ export function TemplatePage3() {
         (value) => setRangeValue(value),
         [],
     );
+
+  const handleTitleTemplateStatus = () =>{
+      setTitleTemplateStatus(!titleTemplateStatus)
+  }
 
     const suffixStyles = {
         minWidth: '24px',
@@ -113,6 +119,8 @@ export function TemplatePage3() {
         setFixedBrand(res.data.result.brand_value)
         setCompetitor(res.data.result.competitor_value)
         setFixedTable(res.data.result.items)
+        setTitleTemplateStatus(res.data.result.title_template_status)
+
 
         setTimeout(() => {
           setLoading(false);
@@ -335,6 +343,7 @@ export function TemplatePage3() {
       competitor_value: competitorValue,
         title_font_size:rangeValue,
         title_font_weight:templateTitleWeight,
+        title_template_status:titleTemplateStatus,
       background_color1: colorValues?.background_color1,
       background_color2: colorValues?.background_color2,
       brand_background1: colorValues?.brand_background1,
@@ -445,6 +454,7 @@ export function TemplatePage3() {
                       autoComplete="off"
                   />
                   <br />
+
 
                 <TextField
                   label="Your Brand"
@@ -859,9 +869,9 @@ export function TemplatePage3() {
                         />
 
                         <span className='Title-Font-Weight' >
-                            {/*<Layout>*/}
+                            <Layout>
 
-                            {/*    <Layout.Section oneHalf>*/}
+                                <Layout.Section oneHalf>
                                     <Select
                                         label="Font Weight"
                                         options={[
@@ -872,9 +882,24 @@ export function TemplatePage3() {
                                         onChange={handleTemplateTitleWeight}
                                         value={templateTitleWeight}
                                     />
-                            {/*         </Layout.Section>*/}
-                            {/*         <Layout.Section oneHalf>  </Layout.Section>*/}
-                            {/*</Layout>*/}
+                                     </Layout.Section>
+
+                                     <Layout.Section oneHalf>
+                                        <span className='Modal-Select'>
+                  <label htmlFor='offer-selected'>Activate Template Title</label>
+                  <input
+                      id='title-status'
+                      type="checkbox"
+                      name='selected'
+                      className="tgl tgl-light"
+                      checked={titleTemplateStatus}
+                      onChange={handleTitleTemplateStatus}
+                  />
+                  <label htmlFor='title-status' className='tgl-btn'></label>
+                </span>
+
+                                     </Layout.Section>
+                            </Layout>
 
                             </span>
                     </div>
@@ -1294,22 +1319,37 @@ export function TemplatePage3() {
                         />
 
                         <span className='Title-Font-Weight' >
-                            {/*<Layout>*/}
+                            <Layout>
 
-                            {/*    <Layout.Section oneHalf>*/}
-                            <Select
-                                label="Font Weight"
-                                options={[
-                                    {label: 'Normal', value: 'normal'},
-                                    {label: 'Bold', value: 'bold'},
+                                <Layout.Section oneHalf>
+                                    <Select
+                                        label="Font Weight"
+                                        options={[
+                                            {label: 'Normal', value: 'normal'},
+                                            {label: 'Bold', value: 'bold'},
 
-                                ]}
-                                onChange={handleTemplateTitleWeight}
-                                value={templateTitleWeight}
-                            />
-                            {/*         </Layout.Section>*/}
-                            {/*         <Layout.Section oneHalf>  </Layout.Section>*/}
-                            {/*</Layout>*/}
+                                        ]}
+                                        onChange={handleTemplateTitleWeight}
+                                        value={templateTitleWeight}
+                                    />
+                                     </Layout.Section>
+
+                                     <Layout.Section oneHalf>
+                                        <span className='Modal-Select'>
+                  <label htmlFor='offer-selected'>Activate Template Title</label>
+                  <input
+                      id='title-status'
+                      type="checkbox"
+                      name='selected'
+                      className="tgl tgl-light"
+                      checked={titleTemplateStatus}
+                      onChange={handleTitleTemplateStatus}
+                  />
+                  <label htmlFor='title-status' className='tgl-btn'></label>
+                </span>
+
+                                     </Layout.Section>
+                            </Layout>
 
                             </span>
                     </div>
@@ -1640,13 +1680,14 @@ export function TemplatePage3() {
                       case 1:
                         return (
                           <Card sectioned>
-
+                              {titleTemplateStatus &&
                               <p className='Template-Preview-Title'
                               style={{fontSize:`${rangeValue}px`,fontWeight:`${templateTitleWeight}`}}
                               >
 
                                   {templateTitle}
                               </p>
+                              }
                             <Table1 competitorsCount={competitorsCount} advantagesCount={advantagesCount}
                               advantageLoading={advantageLoading} allValues={allValues}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
@@ -1657,12 +1698,14 @@ export function TemplatePage3() {
                       case 2:
                         return (
                           <Card sectioned>
-                              <p className='Template-Preview-Title'
-                                 style={{fontSize:`${rangeValue}px`,fontWeight:`${templateTitleWeight}`}}
-                              >
+                              {titleTemplateStatus &&
+                                  <p className='Template-Preview-Title'
+                                     style={{fontSize: `${rangeValue}px`, fontWeight: `${templateTitleWeight}`}}
+                                  >
 
-                                  {templateTitle}
-                              </p>
+                                      {templateTitle}
+                                  </p>
+                              }
                             <Table2 competitorsCount={competitorsCount} advantagesCount={advantagesCount}
                               advantageLoading={advantageLoading} allValues={allValues}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
@@ -1673,12 +1716,14 @@ export function TemplatePage3() {
                       case 3:
                         return (
                           <Card sectioned>
-                              <p className='Template-Preview-Title'
-                                 style={{fontSize:`${rangeValue}px`,fontWeight:`${templateTitleWeight}`}}
-                              >
+                              {titleTemplateStatus &&
+                                  <p className='Template-Preview-Title'
+                                     style={{fontSize: `${rangeValue}px`, fontWeight: `${templateTitleWeight}`}}
+                                  >
 
-                                  {templateTitle}
-                              </p>
+                                      {templateTitle}
+                                  </p>
+                              }
                             <Table3 competitorsCount={competitorsCount} advantagesCount={advantagesCount}
                               advantageLoading={advantageLoading} allValues={allValues} valueType={valueType}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
@@ -1689,12 +1734,14 @@ export function TemplatePage3() {
                       case 4:
                         return (
                           <Card sectioned>
-                              <p className='Template-Preview-Title'
-                                 style={{fontSize:`${rangeValue}px`,fontWeight:`${templateTitleWeight}`}}
-                              >
+                              {titleTemplateStatus &&
+                                  <p className='Template-Preview-Title'
+                                     style={{fontSize: `${rangeValue}px`, fontWeight: `${templateTitleWeight}`}}
+                                  >
 
-                                  {templateTitle}
-                              </p>
+                                      {templateTitle}
+                                  </p>
+                              }
                             <Table4 competitorsCount={competitorsCount} advantagesCount={advantagesCount}
                               advantageLoading={advantageLoading} allValues={allValues} valueType={valueType}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}

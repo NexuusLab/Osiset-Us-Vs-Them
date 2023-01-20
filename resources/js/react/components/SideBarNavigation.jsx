@@ -23,7 +23,7 @@ export function SideBarNavigation() {
                             {
                                 label: 'Getting Started',
                                 selected: activePage === 1,
-                                disabled: activePage === 1 ? false : true,
+                                // disabled: activePage === 1 ? false : true,
                                 onClick: () => {
                                     setActivePage(1)
                                 }
@@ -31,8 +31,8 @@ export function SideBarNavigation() {
                             {
                                 label: 'Select your template',
                                 selected: activePage === 2,
-                                disabled: activePage === 2 ? false : true,
-                                // disabled: activePage >= 2 ? false : true,
+                                // disabled: activePage === 2 ? false : true,
+                                disabled: activePage < 2 ? true : false,
                                 onClick: () => {
                                     setActivePage(2)
                                 }
@@ -40,8 +40,8 @@ export function SideBarNavigation() {
                             {
                                 label: 'Customize your widget',
                                 selected: activePage === 3,
-                                disabled: activePage === 3 ? false : true,
-                                // disabled: activePage >= 3 ? false : true,
+                                // disabled: activePage === 3 ? false : true,
+                                disabled: activePage >= 3 ? false : true,
                                 onClick: () => {
                                     setActivePage(3)
                                 }
@@ -49,8 +49,8 @@ export function SideBarNavigation() {
                             {
                                 label: 'Publish it',
                                 selected: activePage === 4,
-                                disabled: activePage === 4 ? false : true,
                                 // disabled: activePage === 4 ? false : true,
+                                disabled: activePage === 4 ? false : true,
                                 onClick: () => {
                                     setActivePage(4)
                                 }

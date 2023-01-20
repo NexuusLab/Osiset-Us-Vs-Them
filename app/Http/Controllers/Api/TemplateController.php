@@ -49,6 +49,79 @@ class TemplateController extends ApiController
             $user_template = UserTemplate::where('id', $request->user_template_id)->where('shop_id', $shop->id)->first();
             $user_template->template_id = $template->id;
             $user_template->shop_id = $shop->id;
+            if($template->id==1) {
+                $user_template->background_color1 = '#ffffff';
+                $user_template->background_color2 = '#ebecf0';
+                $user_template->brand_checkbox_color1 = '#ffffff';
+                $user_template->brand_checkbox_color2 = '#ffffff';
+                $user_template->competitors_checkbox_color1 = '#000000';
+                $user_template->competitors_checkbox_color2 = '#000000';
+                $user_template->text_advantage_color = '#000000';
+                $user_template->text_brand_color = '#ffffff';
+                $user_template->brand_background1 = '#ec645f';
+                $user_template->brand_background2 = '#eb4c50';
+                $user_template->competitor_backgorund1 = '#6E71A6';
+                $user_template->competitor_backgorund2 = '#3B3F84';
+                $user_template->text_brand_color_inside = '#000000';
+                $user_template->text_competitor_color_inside = '#000000';
+                $user_template->text_competitor_color = '#000000';
+            }
+
+            if($template->id==2) {
+                $user_template->background_color1 = '#e7e9ee';
+                $user_template->background_color2 = '#ffffff';
+                $user_template->brand_checkbox_color1 = '#3b3f84';
+                $user_template->brand_checkbox_color2 = '#6e71a6';
+                $user_template->competitors_checkbox_color1 = '#3b3f84';
+                $user_template->competitors_checkbox_color2 = '#6e71a6';
+                $user_template->text_advantage_color = '#000000';
+                $user_template->text_brand_color = '#ffffff';
+                $user_template->brand_background1 = '#3b3f84';
+                $user_template->brand_background2 = '#eb4c50';
+                $user_template->competitor_backgorund1 = '#F5F5F5';
+                $user_template->competitor_backgorund2 = '#3B3F84';
+                $user_template->text_brand_color_inside = '#000000';
+                $user_template->text_competitor_color_inside = '#000000';
+                $user_template->text_competitor_color = '#000000';
+                $user_template->border_color = '#3b3f84';
+            }
+
+            if($template->id==3) {
+                $user_template->background_color1 = '#51AE58';
+                $user_template->background_color2 = '#E5E5E5';
+                $user_template->brand_checkbox_color1 = '#000000';
+                $user_template->brand_checkbox_color2 = '#E06443';
+                $user_template->competitors_checkbox_color1 = '#000000';
+                $user_template->competitors_checkbox_color2 = '#E06443';
+                $user_template->text_advantage_color = '#000000';
+                $user_template->text_brand_color = '#ffffff';
+                $user_template->brand_background1 = '#3b3f84';
+                $user_template->brand_background2 = '#eb4c50';
+                $user_template->competitor_backgorund1 = '#6E71A6';
+                $user_template->competitor_backgorund2 = '#3B3F84';
+                $user_template->text_brand_color_inside = '#000000';
+                $user_template->text_competitor_color_inside = '#000000';
+                $user_template->text_competitor_color = '#000000';
+            }
+
+            if($template->id==4) {
+                $user_template->background_color1 = '#efefef';
+                $user_template->background_color2 = '#bfe5f4';
+                $user_template->brand_checkbox_color1 = '#000000';
+                $user_template->brand_checkbox_color2 = '#000000';
+                $user_template->competitors_checkbox_color1 = '#000000';
+                $user_template->competitors_checkbox_color2 = '#000000';
+                $user_template->text_advantage_color = '#000000';
+                $user_template->text_brand_color = '#000000';
+                $user_template->brand_background1 = '#3b3f84';
+                $user_template->brand_background2 = '#eb4c50';
+                $user_template->competitor_backgorund1 = '#6E71A6';
+                $user_template->competitor_backgorund2 = '#3B3F84';
+                $user_template->text_brand_color_inside = '#000000';
+                $user_template->text_competitor_color_inside = '#000000';
+                $user_template->text_competitor_color = '#000000';
+                $user_template->border_color = '#000000';
+            }
             $user_template->save();
 
             if($request->template_id==1 || $request->template_id==3 || $request->template_id==4){
@@ -145,6 +218,7 @@ class TemplateController extends ApiController
                     "title" => $user_template->title,
                     "title_font_size" => $user_template->title_font_size,
                     "title_font_weight" => $user_template->title_font_weight,
+                    "title_template_status" => $user_template->title_template_status,
                     "brand" => $user_template->brand,
                     "competitor" => $user_template->competitors,
                     "background_color1" => $user_template->background_color1,
@@ -271,6 +345,7 @@ class TemplateController extends ApiController
                 $user_templates->border_color = '#000000';
             }
             $user_templates->advantages_count = 5;
+            $user_templates->title_template_status = 1;
             $user_templates->shop_id = $shop->id;
             $user_templates->save();
 
@@ -359,6 +434,7 @@ class TemplateController extends ApiController
                             "user_template_id" => $user_templates->id,
                             "title" => $user_templates->title,
                             "title_font_size" => $user_templates->title_font_size,
+                            "title_template_status" => $user_templates->title_template_status,
                             "title_font_weight" => $user_templates->title_font_weight,
                             "brand" => $user_templates->brand,
                             "competitor" => $user_templates->competitors,
@@ -397,6 +473,7 @@ class TemplateController extends ApiController
                                         ),
                                 ]
                             ]);
+
                             if ($product_metafield['errors']=true) {
                                 $res = $shop->api()->rest('get', '/admin/products/' . $user_template_product->shopify_product_id . '/metafields.json');
 
@@ -441,7 +518,12 @@ class TemplateController extends ApiController
         $template = Template::find($request->template_id);
         $shop = User::where('name', $request->shop_name)->first();
         if ($template) {
-
+        if($request->title_template_status==true){
+           $title_template_status=1;
+        }
+        else{
+            $title_template_status=0;
+        }
             Advantage::where('user_template_id', $request->user_template_id)->where('shop_id', $shop->id)->delete();
             Competator::where('user_template_id', $request->user_template_id)->where('shop_id', $shop->id)->delete();
             CompetitorName::where('user_template_id', $request->user_template_id)->where('shop_id', $shop->id)->delete();
@@ -470,6 +552,7 @@ class TemplateController extends ApiController
             $user_template->template_id = $request->template_id;
             $user_template->advantages_count = $request->advantages_count;
             $user_template->border_color = $request->border_color;
+            $user_template->title_template_status = $title_template_status;
 
             $user_template->save();
 
@@ -560,6 +643,7 @@ class TemplateController extends ApiController
                     "title" => $user_template->title,
                     "title_font_size" => $user_template->title_font_size,
                     "title_font_weight" => $user_template->title_font_weight,
+                    "title_template_status" => $user_template->title_template_status,
                     "brand" => $user_template->brand,
                     "competitor" => $user_template->competitors,
                     "background_color1" => $user_template->background_color1,
@@ -609,6 +693,7 @@ class TemplateController extends ApiController
                 'title'=>$user_template->title,
                 "title_font_size" => $user_template->title_font_size,
                 "title_font_weight" => $user_template->title_font_weight,
+                "title_template_status" => $user_template->title_template_status,
                 'brand' => $user_template->brand,
                 'competitor' => $user_template->competitors,
                 'background_color1' => $user_template->background_color1,
@@ -638,7 +723,7 @@ class TemplateController extends ApiController
 
         $shop = User::where('name', $request->shop_name)->first();
         $user_templates = UserTemplate::where('shop_id', $shop->id)->orderBy('id', 'DESC')->get();
-        $delete_template_products=UserTemplateProduct::whereNull('user_template_id')->delete();
+        $delete_template_products=UserTemplateProduct::whereNull('user_template_id')->where('shop_id',$shop->id)->delete();
         $result = [];
         if ($user_templates->count() > 0) {
             foreach ($user_templates as $user_template) {
@@ -889,6 +974,7 @@ class TemplateController extends ApiController
             $user_template->title = $duplicate_user_template->title . '_' . $random_number;
             $user_template->title_font_size = $duplicate_user_template->title_font_size;
             $user_template->title_font_weight = $duplicate_user_template->title_font_weight;
+            $user_template->title_template_status = $duplicate_user_template->title_template_status;
             $user_template->brand = $duplicate_user_template->brand;
             $user_template->competitors = $duplicate_user_template->competitors;
             $user_template->background_color1 = $duplicate_user_template->background_color1;
@@ -1028,7 +1114,7 @@ class TemplateController extends ApiController
     {
 
         $shop = User::where('name', $request->shop_name)->first();
-
+        $delete_template_products=UserTemplateProduct::whereNull('user_template_id')->where('shop_id',$shop->id)->delete();
         if ($request->user_template_id !="null") {
             $user_template = UserTemplate::where('id', $request->user_template_id)->where('shop_id', $shop->id)->first();
 
@@ -1385,6 +1471,13 @@ class TemplateController extends ApiController
                 $competitor_names=CompetitorName::where('user_template_id', $request->user_template_id)->pluck('name')->toArray();
                 $competitor_names_count=CompetitorName::where('user_template_id', $request->user_template_id)->count();
 
+                if($user_template->title_template_status==1){
+                    $title_template_status=true;
+                }
+                else{
+                    $title_template_status=false;
+                }
+
             $brands_array = [];
             foreach ($brands_gets as $brand_ge) {
                 if($brand_ge->text_icon=='icon') {
@@ -1496,6 +1589,7 @@ class TemplateController extends ApiController
                 'template_title' => $user_template->title,
                 'title_font_size' => $user_template->title_font_size,
                 'title_font_weight' => $user_template->title_font_weight,
+                "title_template_status" => $title_template_status,
                 'brand' => $user_template->brand,
 //                'competitor' => $user_template->competitors,
                 'primary_colors' => $colors_array,

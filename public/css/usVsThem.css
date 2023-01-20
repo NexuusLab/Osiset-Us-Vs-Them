@@ -1529,6 +1529,64 @@
 .Theme3-Mobile-Table .Polaris-IndexTable__Table .Polaris-IndexTable__TableHeading:first-child{
     background-color:transparent;
 }
+.tgl {
+    display: none;
+}
+.tgl+.tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.tgl+.tgl-btn:after,
+.tgl+.tgl-btn:before {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+}
+.tgl+.tgl-btn:after {
+    left: 0;
+}
+.tgl+.tgl-btn:before {
+    display: none;
+}
+.tgl:checked+.tgl-btn:after {
+    left: 50%;
+}
+.tgl-light+.tgl-btn {
+    background: #F0F0F0;
+    border-radius: 2em;
+    padding: 2px;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+.tgl-light+.tgl-btn:after {
+    border-radius: 50%;
+    background: #fff;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.tgl-light:checked+.tgl-btn {
+    /* background: #9FD6AE; */
+    background: var(--p-action-primary);
+}
+.Modal-Select{
+    display: flex;
+    align-items: center;
+}
+.Modal-Select .tgl+.tgl-btn {
+    width: 2.3em;
+    height: 1.3em;
+    margin-left:8px
+}
 /* .Template-Page3 .Advantages-Content-Section .Polaris-Layout .Polaris-Layout__Section:first-child{
     min-width: 35%;
     max-width: 35%;
