@@ -311,6 +311,8 @@
 
   {% elsif xc_settings and xc_settings.template_id == 3 %}
   {{ 'template3.css' | asset_url | stylesheet_tag }}
+
+
     {% if xc_settings.title_template_status == 1 %}
    <h1 style="text-align:center;font-size:{{ xc_settings.title_font_size }}px;font-weight:{{ xc_settings.title_font_weight }};">{{ xc_settings.title }}</h1>
     {% endif %}
@@ -446,6 +448,7 @@
 </div>
   {% elsif xc_settings and xc_settings.template_id == 4 %}
   {{ 'template4.css' | asset_url | stylesheet_tag }}
+
     {% if xc_settings.title_template_status == 1 %}
   <h1 style="text-align:center;font-size:{{ xc_settings.title_font_size }}px;font-weight:{{ xc_settings.title_font_weight }};">{{ xc_settings.title }}</h1>
   {% endif %}
@@ -553,7 +556,7 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('friday');
+console.log('friday1dsdsd');
         $.ajax({
 
             url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
