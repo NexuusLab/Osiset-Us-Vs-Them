@@ -806,6 +806,7 @@
     font-size: 14px;
     border: none;
     border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 
@@ -1111,8 +1112,8 @@
 
 
 .Theme2-Pc-Table .Polaris-IndexTable__TableHeading:not(:first-child) {
-    border-top: 4px solid var(--template2-border-color);
-    border-bottom: 4px solid var(--template2-border-color);
+    /*border-top: 4px solid var(--template2-border-color);*/
+    /*border-bottom: 4px solid var(--template2-border-color);*/
 }
 .Theme2-Pc-Table .Polaris-IndexTable__TableHeading:nth-child(2){
     border-left: 4px solid var(--template2-border-color);

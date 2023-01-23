@@ -127,12 +127,12 @@ body {
 
 .choose-table th:not(:first-child) {
     border: 0;
-    border-top: 4px solid #474B8BFF;
-    border-bottom: 4px solid #474B8BFF;
+    /*border-top: 4px solid #474B8BFF;*/
+    /*border-bottom: 4px solid #474B8BFF;*/
 
 }
 .choose-table th:last-child {
-    border-right: 4px solid #474B8BFF;
+    /*border-right: 4px solid #474B8BFF;*/
     margin-right: -5px;
 }
 

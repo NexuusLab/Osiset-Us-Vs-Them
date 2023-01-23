@@ -89,6 +89,28 @@
       .cross_color_brand{
         fill:{{ xc_settings.brand_checkbox_color2 }};
       }
+      .temp1-advantages{
+      font-size:25px !important;
+      }
+        @media screen and (min-width: 768px){
+
+        .template1-brand{
+              font-size: 25px !important;
+          }
+          .template1-competitor{
+              font-size: 25px !important  ;
+          }
+
+        }
+
+              @media screen and (max-width: 768px){
+
+
+                  .temp1-advantages{
+                        font-size:20px !important;
+                        }
+                }
+
   </style>
   <div class="page-section temp1-compare-section metafileds-comaparison lazyloaded">
 <table class="custom">
@@ -96,9 +118,9 @@
 
     <tr>
         <th></th>
-      <th style="color:{{  xc_settings.text_brand_color  }} ">{{ xc_settings.brand }}</th>
+      <th class="template1-brand" style="color:{{  xc_settings.text_brand_color  }};font-weight: bold; ">{{ xc_settings.brand }}</th>
       {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
-      <th style="color:{{  xc_settings.text_competitor_color  }} ">{{ xc_settings_comp_loop }}</th>
+      <th class="template1-competitor" style="color:{{  xc_settings.text_competitor_color  }};font-weight: bold; ">{{ xc_settings_comp_loop }}</th>
         {% endfor %}
     </tr>
     </thead>
@@ -106,7 +128,7 @@
       {% for xc_settings_loop in  xc_settings.items %}
 
     <tr>
-        <td style="color:{{  xc_settings.text_advantage_color  }} ">
+        <td class="temp1-advantages" style="color:{{  xc_settings.text_advantage_color  }};text-transform: none;">
         {{ xc_settings_loop.advantage  }}
         </td>
 
@@ -173,18 +195,17 @@
   }
 
   .choose-table th:not(:first-child){
-      border-top: 4px solid {{ xc_settings.border_color}};
-  border-bottom:4px solid {{ xc_settings.border_color}};
+
   }
   .choose-table th:nth-child(2){
    border-left:4px solid {{ xc_settings.border_color}};
    border-right:4px solid {{ xc_settings.border_color}};
    border-top-left-radius:12px;
-   font-size: 14px;
+   border-top-right-radius: 12px;
+
   }
   .choose-table th:last-child{
-    border-right:4px solid {{ xc_settings.border_color}};
-       font-size: 14px;
+
   }
   .choose-table tbody tr :nth-child(2){
       border-right: 4px solid {{ xc_settings.border_color}};
@@ -195,7 +216,15 @@
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   }
-
+    .temp2-advantage{
+    font-size:25px !important;
+    text-align: left !important;
+    padding-left: 37px !important;
+    }
+    .heading_size {
+       font-size:25px !important;
+       font-weight:bold;
+    }
 
   @media only screen and (max-width: 768px)  {
 
@@ -205,6 +234,23 @@
        .choose-table th:nth-child(2){
        font-size: 12px;
        }
+         .template1-brand{
+                     font-size: 25px !important;
+                     font-weight:bold;
+                 }
+                 .template1-competitor{
+                     font-size: 25px !important  ;
+                     font-weight:bold;
+                 }
+                     .heading_size {
+                        font-size:20px !important;
+
+                     }
+                         .temp2-advantage{
+                         font-size:20px !important;
+                         text-align: left !important;
+                         padding-left: 10px !important;
+                         }
 
   }
 
@@ -271,9 +317,9 @@
         <thead>
         <tr>
             <th></th>
-          <th class="heading_size" style="color:{{ xc_settings.text_brand_color }};">{{ xc_settings.brand }}</th>
+          <th  class="heading_size template1-brand" style="color:{{ xc_settings.text_brand_color }};">{{ xc_settings.brand }}</th>
         {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
-      <th class="heading_size" style="color:{{ xc_settings.text_competitor_color }};background:{{ xc_settings.competitor_backgorund1 }};">{{ xc_settings_comp_loop }}</th>
+      <th class="heading_size template1-competitor"  style="color:{{ xc_settings.text_competitor_color }};background:{{ xc_settings.competitor_backgorund1 }};">{{ xc_settings_comp_loop }}</th>
         {% endfor %}
 
 
@@ -282,7 +328,7 @@
         <tbody>
       {% for xc_settings_loop in  xc_settings.items %}
         <tr>
-            <th style="color:{{ xc_settings_loop.advantage_color_value  }};font-size:14px; ">{{ xc_settings_loop.advantage  }} </th>
+            <th class="temp2-advantage" style="color:{{ xc_settings_loop.advantage_color_value  }}; ">{{ xc_settings_loop.advantage  }} </th>
             <td><span class="choose-table__price">
           {% if  xc_settings_loop.brand == true %}
           <i class="fa fa-check-circle check_brand "></i>
@@ -310,12 +356,13 @@
 </div>
 
   {% elsif xc_settings and xc_settings.template_id == 3 %}
+     {% if xc_settings.title_template_status == 1 %}
+     <h1 style="text-align:center;font-size:{{ xc_settings.title_font_size }}px;font-weight:{{ xc_settings.title_font_weight }};">{{ xc_settings.title }}</h1>
+      {% endif %}
   {{ 'template3.css' | asset_url | stylesheet_tag }}
 
 
-    {% if xc_settings.title_template_status == 1 %}
-   <h1 style="text-align:center;font-size:{{ xc_settings.title_font_size }}px;font-weight:{{ xc_settings.title_font_weight }};">{{ xc_settings.title }}</h1>
-    {% endif %}
+
    <div class="template-container" style="max-width:80rem; id="us-vs-them-block">
   <style>
   @font-face {
@@ -556,7 +603,7 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('friday1dsdsd');
+console.log('vvv');
         $.ajax({
 
             url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
