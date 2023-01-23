@@ -15,7 +15,7 @@ body {
 .person-block__title-2,
 .text-uppercase,
 .video-promo-block__link-text {
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 /*.block-with-bg,*/
 /*.choose-table tbody td:nth-child(2),*/

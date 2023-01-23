@@ -107,7 +107,7 @@
 
 
                   .temp1-advantages{
-                        font-size:20px !important;
+                        font-size:15px !important;
                         }
                 }
 
@@ -243,7 +243,7 @@
                      font-weight:bold;
                  }
                      .heading_size {
-                        font-size:20px !important;
+                        font-size:14px !important;
 
                      }
                          .temp2-advantage{
@@ -536,6 +536,35 @@
                        border-bottom: 4px solid {{ xc_settings. border_color}};
                                        }
 
+                     .temp4-heading{
+                     font-size:25px !important;
+                     font-weight: bold !important;
+                     }
+                     .temp4-advantage{
+                     font-size:25px !important;
+                     }
+                     .temp4-brand-text{
+                        font-size:25px !important;
+                     }
+                     .temp4-brand-competitor{
+                        font-size:25px !important;
+                     }
+
+                       @media only screen and (max-width: 768px)  {
+                             .temp4-heading{
+                       font-size: 14px !important;
+                             }
+                              .temp4-advantage{
+                                                  font-size:14px !important;
+                                                  }
+                               .temp4-brand-text{
+                                                      font-size:14px !important;
+                                                   }
+                                .temp4-brand-competitor{
+                                                        font-size:14px !important;
+                                                     }
+                       }
+
   </style>
 
   <div class="stickyTableColumns-scroll" style="overflow-y: auto;">
@@ -543,10 +572,10 @@
         <thead>
         <tr>
 
-           <th style="color:{{ xc_settings.text_advantage_color  }} ">Advantages</th>
-            <th style="color:{{ xc_settings.text_brand_color  }} ">{{ xc_settings.brand }}</th>
+           <th class="temp4-heading" style="color:{{ xc_settings.text_advantage_color  }} ">Advantages</th>
+            <th class="temp4-heading" style="color:{{ xc_settings.text_brand_color  }} ">{{ xc_settings.brand }}</th>
         {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
-      <th style="color:{{ xc_settings.text_competitor_color  }} " >{{ xc_settings_comp_loop }}</th>
+      <th class="temp4-heading" style="color:{{ xc_settings.text_competitor_color  }} " >{{ xc_settings_comp_loop }}</th>
         {% endfor %}
 
         </tr>
@@ -555,7 +584,7 @@
           {% for xc_settings_loop in  xc_settings.items %}
         <tr>
 
-            <td style="color:{{ xc_settings.text_advantage_color  }} ">
+            <td class="temp4-advantage" style="color:{{ xc_settings.text_advantage_color  }} ">
                 {{ xc_settings_loop.advantage  }}
             <td>
              {% if  xc_settings_loop.text_icon == 'icon' %}
@@ -566,7 +595,7 @@
             <i class="fa  fa-times-circle cross_brand "></i>
           {% endif %}
                  {% else %}
-              <h3 style="font-weight:bold;margin:0;color:{{ xc_settings.text_brand_color_inside }}">{{  xc_settings_loop.brand }}</h3>
+              <h3 class="temp4-brand-text"  style="margin:0;color:{{ xc_settings.text_brand_color_inside }}">{{  xc_settings_loop.brand }}</h3>
                 {% endif %}
                </td>
 
@@ -579,7 +608,7 @@
         <i class="fa  fa-times-circle cross_competator "></i>
         {% endif %}
                 {% else %}
-         <h3 style="font-weight:bold;margin:0;color:{{ xc_settings.text_competitor_color_inside }}">{{ xc_settings_nested_loop }}</h3>
+         <h3 class="temp4-brand-competitor" style="margin:0;color:{{ xc_settings.text_competitor_color_inside }}">{{ xc_settings_nested_loop }}</h3>
                 {% endif %}
              </td>
            {% endfor %}
@@ -603,7 +632,7 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('mmm');
+console.log('rew');
         $.ajax({
 
             url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
