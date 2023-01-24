@@ -319,7 +319,7 @@
             <th></th>
           <th  class="heading_size template1-brand" style="color:{{ xc_settings.text_brand_color }};">{{ xc_settings.brand }}</th>
         {% for xc_settings_comp_loop in  xc_settings.competitors_name %}
-      <th class="heading_size template1-competitor"  style="color:{{ xc_settings.text_competitor_color }};background:{{ xc_settings.competitor_backgorund1 }};">{{ xc_settings_comp_loop }}</th>
+      <th class="heading_size template1-competitor"  style="color:{{ xc_settings.text_competitor_color }};">{{ xc_settings_comp_loop }}</th>
         {% endfor %}
 
 
@@ -632,7 +632,7 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('rew');
+console.log('mmm');
         $.ajax({
 
             url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
