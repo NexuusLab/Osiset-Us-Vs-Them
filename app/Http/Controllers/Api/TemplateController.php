@@ -78,7 +78,7 @@ class TemplateController extends ApiController
                 $user_template->text_brand_color = '#ffffff';
                 $user_template->brand_background1 = '#3b3f84';
                 $user_template->brand_background2 = '#eb4c50';
-                $user_template->competitor_backgorund1 = '#F5F5F5';
+                $user_template->competitor_backgorund1 = '#ffffff';
                 $user_template->competitor_backgorund2 = '#3B3F84';
                 $user_template->text_brand_color_inside = '#000000';
                 $user_template->text_competitor_color_inside = '#000000';

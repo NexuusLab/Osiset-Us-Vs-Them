@@ -1199,28 +1199,28 @@ export function TemplatePage3() {
                     {
                       selectedTemplate === 2 &&
                       <>
-                        <Stack>
-                          <label
-                            className={`${colorValues?.competitor_backgorund1 === '#ffffff' || colorValues?.competitor_backgorund1 === '#ebecf0' ? 'Color-Circle-Border' : ''} Color-Circle`}
-                            style={{ backgroundColor: colorValues?.competitor_backgorund1 }}>
-                            <input type="color"
-                              value={colorValues?.competitor_backgorund1}
-                              name='competitor_backgorund1'
-                              onChange={handleColorValues}
-                            />
-                          </label>
+                        {/*<Stack>*/}
+                        {/*  <label*/}
+                        {/*    className={`${colorValues?.competitor_backgorund1 === '#ffffff' || colorValues?.competitor_backgorund1 === '#ebecf0' ? 'Color-Circle-Border' : ''} Color-Circle`}*/}
+                        {/*    style={{ backgroundColor: colorValues?.competitor_backgorund1 }}>*/}
+                        {/*    <input type="color"*/}
+                        {/*      value={colorValues?.competitor_backgorund1}*/}
+                        {/*      name='competitor_backgorund1'*/}
+                        {/*      onChange={handleColorValues}*/}
+                        {/*    />*/}
+                        {/*  </label>*/}
 
-                          <span className='Color-Property'>
-                            <Stack vertical>
-                              <Text variant="headingSm" as="h6" fontWeight="semibold">
-                                Competitor Background
-                              </Text>
-                              <Text variant="headingXs" as="h6" fontWeight="medium">
-                                {colorValues?.competitor_backgorund1}
-                              </Text>
-                            </Stack>
-                          </span>
-                        </Stack>
+                        {/*  <span className='Color-Property'>*/}
+                        {/*    <Stack vertical>*/}
+                        {/*      <Text variant="headingSm" as="h6" fontWeight="semibold">*/}
+                        {/*        Competitor Background*/}
+                        {/*      </Text>*/}
+                        {/*      <Text variant="headingXs" as="h6" fontWeight="medium">*/}
+                        {/*        {colorValues?.competitor_backgorund1}*/}
+                        {/*      </Text>*/}
+                        {/*    </Stack>*/}
+                        {/*  </span>*/}
+                        {/*</Stack>*/}
 
                         {/* <Stack>
                           <label
