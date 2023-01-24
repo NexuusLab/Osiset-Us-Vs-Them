@@ -982,37 +982,37 @@ export function TemplatePage3() {
                       </span>
                     </Stack>
                   </div>
-                    {selectedTemplate == 2  &&
-                        <div className='Color-Inputs'>
-                            <Text variant="bodyMd" as="p" color="subdued">
-                                Border color
-                            </Text>
-                            <Stack>
-                                <label
-                                    className={`${colorValues?.border_color === '#ffffff' || colorValues?.border_color === '#3b3f84' ?
-                                        'Color-Circle-Border' : ''} Color-Circle`}
-                                    style={{backgroundColor: colorValues?.border_color}}>
-                                    <input type="color"
-                                           value={colorValues?.border_color}
-                                           name='border_color'
-                                           onChange={handleColorValues}
-                                    />
-                                </label>
-                                <span className='Color-Property'>
-                        <Stack vertical>
-                          <Text variant="headingSm" as="h6" fontWeight="semibold">
-                           Border Color
-                          </Text>
-                          <Text variant="headingXs" as="h6" fontWeight="medium">
-                            {colorValues?.border_color}
-                          </Text>
-                        </Stack>
-                      </span>
-                            </Stack>
+                    {/*{selectedTemplate == 2  &&*/}
+                    {/*    <div className='Color-Inputs'>*/}
+                    {/*        <Text variant="bodyMd" as="p" color="subdued">*/}
+                    {/*            Border color*/}
+                    {/*        </Text>*/}
+                    {/*        <Stack>*/}
+                    {/*            <label*/}
+                    {/*                className={`${colorValues?.border_color === '#ffffff' || colorValues?.border_color === '#3b3f84' ?*/}
+                    {/*                    'Color-Circle-Border' : ''} Color-Circle`}*/}
+                    {/*                style={{backgroundColor: colorValues?.border_color}}>*/}
+                    {/*                <input type="color"*/}
+                    {/*                       value={colorValues?.border_color}*/}
+                    {/*                       name='border_color'*/}
+                    {/*                       onChange={handleColorValues}*/}
+                    {/*                />*/}
+                    {/*            </label>*/}
+                    {/*            <span className='Color-Property'>*/}
+                    {/*    <Stack vertical>*/}
+                    {/*      <Text variant="headingSm" as="h6" fontWeight="semibold">*/}
+                    {/*       Border Color*/}
+                    {/*      </Text>*/}
+                    {/*      <Text variant="headingXs" as="h6" fontWeight="medium">*/}
+                    {/*        {colorValues?.border_color}*/}
+                    {/*      </Text>*/}
+                    {/*    </Stack>*/}
+                    {/*  </span>*/}
+                    {/*        </Stack>*/}
 
 
-                        </div>
-                    }
+                    {/*    </div>*/}
+                    {/*}*/}
                   <div className='Color-Inputs'>
                     <Text variant="bodyMd" as="p" color="subdued">
                       Brand Color
