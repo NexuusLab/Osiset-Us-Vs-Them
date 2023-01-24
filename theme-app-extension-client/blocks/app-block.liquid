@@ -198,8 +198,8 @@
 
   }
   .choose-table th:nth-child(2){
-   border-left:4px solid {{ xc_settings.border_color}};
-   border-right:4px solid {{ xc_settings.border_color}};
+   border-left:4px solid {{ xc_settings.brand_background1}};
+   border-right:4px solid {{ xc_settings.brand_background1}};
    border-top-left-radius:12px;
    border-top-right-radius: 12px;
 
@@ -208,8 +208,8 @@
 
   }
   .choose-table tbody tr :nth-child(2){
-      border-right: 4px solid {{ xc_settings.border_color}};
-    border-left: 4px solid {{ xc_settings.border_color}};
+      border-right: 4px solid {{ xc_settings.brand_background1}};
+    border-left: 4px solid {{ xc_settings.brand_background1}};
   }
   .choose-table tbody tr:last-child td:nth-child(2){
   border-bottom:4px solid {{ xc_settings.border_color}};
@@ -632,7 +632,7 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('tues');
+console.log('tuesday1');
         $.ajax({
 
             url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
