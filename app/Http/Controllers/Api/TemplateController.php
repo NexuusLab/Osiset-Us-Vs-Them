@@ -345,7 +345,7 @@ class TemplateController extends ApiController
                 $user_templates->border_color = '#000000';
             }
             $user_templates->advantages_count = 5;
-            $user_templates->title_template_status = 1;
+            $user_templates->title_template_status = 0;
             $user_templates->shop_id = $shop->id;
             $user_templates->save();
 
