@@ -1120,6 +1120,12 @@
     /*border-top: 4px solid var(--template2-border-color);*/
     /*border-bottom: 4px solid var(--template2-border-color);*/
 }
+.Theme2-Pc-Table .Polaris-IndexTable__TableHeading,
+.Theme2-Mobile-Table .Polaris-IndexTable__TableHeading{
+    background: transparent;
+}
+
+
 .Theme2-Pc-Table .Polaris-IndexTable__TableHeading:nth-child(2){
     border-left: 4px solid var(--template2-border-color);
     border-right: 4px solid var(--template2-border-color)
