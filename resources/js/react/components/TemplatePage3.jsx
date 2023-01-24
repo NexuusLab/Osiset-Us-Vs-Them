@@ -1432,7 +1432,7 @@ export function TemplatePage3() {
                       </span>
                     </Stack>
                   </div>
-                    {selectedTemplate == 2 || selectedTemplate == 4 &&
+                    { selectedTemplate == 4 &&
                     <div className='Color-Inputs'>
                         <Text variant="bodyMd" as="p" color="subdued">
                             Border color
