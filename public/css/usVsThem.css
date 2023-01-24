@@ -1034,7 +1034,10 @@
     background-color: #fff;
 }
 
-
+.Theme1-Pc-Table .Polaris-IndexTable__TableHeading,
+.Theme1-Mobile-Table .Polaris-IndexTable__TableHeading{
+    background-color: transparent;
+}
 .Theme1-Pc-Table .Polaris-IndexTable__Table .Polaris-IndexTable__TableRow:nth-child(odd) .Polaris-IndexTable__TableCell:nth-child(2),
 .Theme1-Mobile-Table .Polaris-IndexTable__Table .Polaris-IndexTable__TableRow:nth-child(odd) .Polaris-IndexTable__TableCell:nth-child(2) {
     background-color: var(--template1-column2-bg-odd-color);
@@ -1047,6 +1050,8 @@
 .Theme1-Pc-Table .Polaris-IndexTable__TableHeading:nth-child(2) {
     background-color: var(--template1-column2-bg-even-color);
 }
+
+
 
 .Theme1-Pc-Table .Polaris-IndexTable__TableHeading,
 .Theme1-Mobile-Table .Polaris-IndexTable__TableHeading {
