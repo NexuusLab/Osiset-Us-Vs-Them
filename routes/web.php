@@ -24,6 +24,9 @@ use Illuminate\Http\Request;
 ////    return view('welcome');
 //})->middleware(['verify.shopify','billable']);
 
+
+
+
 Route::get('/', function (Request $request) {
 
 
@@ -35,8 +38,6 @@ Route::get('/', function (Request $request) {
     ]);
 
 })->middleware(['verify.shopify','billable'])->name('home');
-
-
 Route::get('/templates', function (Request $request) {
 
 
@@ -47,8 +48,11 @@ Route::get('/templates', function (Request $request) {
 
     ]);
 
-})->middleware(['verify.shopify','billable'])->name('home');
-//Route::get('/billing/manual/process/{plan?}', [\App\Http\Controllers\ProductController::class,'billing_manual_process']);
+//})->middleware(['verify.shopify','billable'])->name('home');
+})->middleware(['verify.shopify','billable']);
+
+
+Route::get('/billing/manual/process/{plan?}', [\App\Http\Controllers\ProductController::class,'billing_manual_process']);
 
 Route::get('/test', [\App\Http\Controllers\ProductController::class,'MonthlyCharge']);
 Route::get('/testing', function() {

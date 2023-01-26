@@ -222,7 +222,6 @@ class ProductController extends Controller
         // Go to homepage of app
         return Redirect::route('home', [
             'shop' => $shop->getDomain()->toNative(),
-
         ]);
     }
 }
