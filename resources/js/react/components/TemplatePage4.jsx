@@ -107,7 +107,7 @@ export function TemplatePage4() {
 
                             {/*</Card>*/}
 
-                            {!appEnable &&
+                            {/*{!appEnable &&*/}
                                 <div className='App-Banner template-page-4'>
                                     {appError ?
                                         <Banner
@@ -151,7 +151,7 @@ export function TemplatePage4() {
                                     }
 
                                 </div>
-                            }
+
 
                         </Layout.Section>
 
