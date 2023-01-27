@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 export function TemplatePage4() {
-    const { setActivePage, setTemplateUserId, setSelectedTemplate, templatesCount, config, url } = useContext(AppContext);
+    const { setActivePage, setTemplateUserId, setSelectedTemplate, templatesCount,templateUserId, config, url } = useContext(AppContext);
     let host = config?.shopOrigin;
     // const app = createApp(config);
     // const redirect = Redirect.create(app);
@@ -40,7 +40,7 @@ export function TemplatePage4() {
     const getPlanData = async () => {
         const response = await axios
             .get(
-                `${url}/check-trial?shop_name=${host}`
+                `${url}/check-trial?shop_name=${host}&user_template_id=${templateUserId}`
             )
             .then(res => {
                 setAppEnable(res.data.result.app_status)
