@@ -24,11 +24,11 @@ export default function App({ shop, host, apiKey }) {
     // const url='https://phpstack-899954-3189251.cloudwaysapps.com/api';
      const url='https://usvsthemapp.com/api';
 
-    // useEffect(() => {
-    //     console.log('activePage: ', activePage);
-    //     console.log('selectedTemplate: ', selectedTemplate);
-    //     console.log('templateUserId: ', templateUserId);
-    // }, [activePage, selectedTemplate, templateUserId])
+    useEffect(() => {
+        console.log('activePage: ', activePage);
+        console.log('selectedTemplate: ', selectedTemplate);
+        console.log('templateUserId: ', templateUserId);
+    }, [activePage, selectedTemplate, templateUserId])
 
 
     useEffect(() => {
