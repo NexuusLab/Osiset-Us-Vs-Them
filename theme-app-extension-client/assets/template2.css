@@ -148,7 +148,7 @@ body {
 
 
 .choose-table tbody tr:last-child td:nth-child(2) {
-    border-bottom: 4px solid #474B8BFF;
+    /*border-bottom: 4px solid #474B8BFF;*/
 
 }
 

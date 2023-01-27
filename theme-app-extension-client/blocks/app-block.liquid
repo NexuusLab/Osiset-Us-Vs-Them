@@ -212,7 +212,7 @@
     border-left: 4px solid {{ xc_settings.brand_background1}};
   }
   .choose-table tbody tr:last-child td:nth-child(2){
-  border-bottom:4px solid {{ xc_settings.border_color}};
+  border-bottom:4px solid {{ xc_settings.brand_background1}};
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   }
@@ -328,7 +328,7 @@
         <tbody>
       {% for xc_settings_loop in  xc_settings.items %}
         <tr>
-            <th class="temp2-advantage" style="color:{{ xc_settings_loop.advantage_color_value  }}; ">{{ xc_settings_loop.advantage  }} </th>
+            <th class="temp2-advantage" style="color:{{ xc_settings.text_advantage_color  }}; ">{{ xc_settings_loop.advantage  }} </th>
             <td><span class="choose-table__price">
           {% if  xc_settings_loop.brand == true %}
           <i class="fa fa-check-circle check_brand "></i>
@@ -632,7 +632,7 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('tuesday1');
+console.log('frid');
         $.ajax({
 
             url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
