@@ -135,8 +135,8 @@ export function TemplatePage4() {
                                         >
 
                                             <p> In order for your widgets to work on your storefront, go to your
-                                                online store editor
-                                                and turn on the forms theme app embed.</p>
+                                                    online store editor
+                                                    and turn on the forms theme app embed.</p>
 
                                             <br/>
 
