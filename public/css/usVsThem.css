@@ -324,7 +324,9 @@
     margin-bottom: 1rem;
 }
 
-.Dashboard .App-Banner .Polaris-Banner__Dismiss button {
+.Dashboard .App-Banner .Polaris-Banner__Dismiss button,
+.Template-Page4 .App-Banner .Polaris-Banner__Dismiss button
+{
     background: transparent;
 }
 

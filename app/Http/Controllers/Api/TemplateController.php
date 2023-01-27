@@ -1832,8 +1832,15 @@ dd(2);
 
         $charge=Charge::where('user_id',$shop->id)->latest()->first();
 
-
-        $user_template_product=UserTemplateProduct::where('shop_id',$shop->id)->first();
+        if($request->user_template_id){
+                $user_template_product=UserTemplateProduct::where('shop_id',$shop->id)->where('user_template_id',$request->user_template_id)->first();
+                    if($user_template_product==null){
+                        $user_template_product=UserTemplateProduct::where('shop_id',$shop->id)->first();
+                    }
+        }
+            else{
+                $user_template_product=UserTemplateProduct::where('shop_id',$shop->id)->first();
+            }
         if($user_template_product){
             $selected_product=Product::where('shopify_id',$user_template_product->shopify_product_id)->first();
             if($selected_product) {
