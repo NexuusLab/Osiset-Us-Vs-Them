@@ -545,7 +545,7 @@ export function Dashboard() {
                                                 onDismiss={() => setAppEnable(true)}
                                             >
 
-                                                <p>{`Go to Sales Channel -> Online Store -> Preferences and remove the password`}</p>
+                                                <p>{`Go to Sales Channel: -> Online Store: -> Preferences and remove the password`}</p>
                                                   <br/>
                                                 <div className='Polaris-Banner__Actions'>
 
