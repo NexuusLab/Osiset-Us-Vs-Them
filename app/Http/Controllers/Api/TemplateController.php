@@ -1832,22 +1832,28 @@ dd(2);
 
         $charge=Charge::where('user_id',$shop->id)->latest()->first();
 
-        if($request->user_template_id){
-                $user_template_product=UserTemplateProduct::where('shop_id',$shop->id)->where('user_template_id',$request->user_template_id)->first();
-                    if($user_template_product==null){
-                        $user_template_product=UserTemplateProduct::where('shop_id',$shop->id)->first();
-                    }
+        if($request->user_template_id) {
+            $user_template_product = UserTemplateProduct::where('shop_id', $shop->id)->where('user_template_id',$request->user_template_id)->first();
         }
-            else{
-                $user_template_product=UserTemplateProduct::where('shop_id',$shop->id)->first();
-            }
+        else{
+            $user_template_product = UserTemplateProduct::where('shop_id', $shop->id)->first();
+        }
+
         if($user_template_product){
-            $selected_product=Product::where('shopify_id',$user_template_product->shopify_product_id)->first();
+            if($request->user_template_id){
+                $selected_product=UserTemplateProduct::where('user_template_id',$request->user_template_id)->where('shop_id',$shop->id)->first();
+
+                $selected_product = Product::where('shopify_id', $selected_product->shopify_product_id)->first();
+            }
+            else {
+                $selected_product = Product::where('shopify_id', $user_template_product->shopify_product_id)->first();
+            }
             if($selected_product) {
                 $url = "https://" . $shop->name . '/products/' . $selected_product->handle;
             }else{
                 $url="https://" . $shop->name . '/products/' ;
             }
+
             $ch = curl_init();
             $timeout = 5;
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -1885,7 +1891,7 @@ dd(2);
         else{
             $app_status=false;
             $error_msg=false;
-            $product=Product::where('shop_id',$shop->id)->first();
+            $product=Product::where('shop_id',$shop->id)->where('status','active')->first();
             if($product) {
                 $link = 'https://' . $shop->name . '/admin/themes/current/editor?previewPath=/products/' . $product->handle;
             }
