@@ -107,7 +107,7 @@ export function TemplatePage4() {
 
                             {/*</Card>*/}
 
-                            {/*{!appEnable &&*/}
+                            {!appEnable &&
                                 <div className='App-Banner template-page-4'>
                                     {appError ?
                                         <Banner
@@ -135,8 +135,8 @@ export function TemplatePage4() {
                                         >
 
                                             <p> In order for your widgets to work on your storefront, go to your
-                                                    online store editor
-                                                    and turn on the forms theme app embed.</p>
+                                                online store editor
+                                                and turn on the forms theme app embed.</p>
 
                                             <br/>
 
@@ -152,7 +152,7 @@ export function TemplatePage4() {
 
                                 </div>
 
-
+                            }
                         </Layout.Section>
 
                         <Layout.Section fullWidth>

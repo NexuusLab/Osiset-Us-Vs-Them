@@ -1839,11 +1839,12 @@ dd(2);
             $user_template_product = UserTemplateProduct::where('shop_id', $shop->id)->first();
         }
 
+
         if($user_template_product){
             if($request->user_template_id){
                 $selected_product=UserTemplateProduct::where('user_template_id',$request->user_template_id)->where('shop_id',$shop->id)->first();
 
-                $selected_product = Product::where('shopify_id', $selected_product->shopify_product_id)->first();
+                $selected_product = Product::where('shopify_id', $selected_product->shopify_product_id)->where('shop_id',$shop->id)->first();
             }
             else {
                 $selected_product = Product::where('shopify_id', $user_template_product->shopify_product_id)->first();
@@ -1868,6 +1869,7 @@ dd(2);
             curl_close($ch);
 
             $error_msg=false;
+
             if($selected_product) {
                 $link = 'https://' . $shop->name . '/admin/themes/current/editor?previewPath=/products/' . $selected_product->handle;
             }
