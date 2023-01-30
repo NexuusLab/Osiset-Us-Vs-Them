@@ -182,7 +182,7 @@ export function TemplatePage4() {
                                 <MediaCard
                                     title="Add an app block"
                                     description={`Using the theme customizer for your published theme, navigate to the template for product pages.
-                                Use the block list navigator to add a new block and add the Trial Offers Block.`}
+                                Use the block list navigator to add a new block and add the Us vs Them Block.`}
                                 >
                                     <img
                                         alt="table1"
