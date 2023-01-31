@@ -208,12 +208,9 @@ export function TemplatePage1() {
                         onAction: handleSelectProducts
                     }}
                     description={`Choose the template that best suits your needs. You will then be able to fully customize it.`}>
-                    {/*<VideoThumbnail*/}
-                    {/*    videoLength={80}*/}
-                    {/*    thumbnailUrl="https://www.youtube.com/watch?v=DK7fcW4t3tg"*/}
-                    {/*/>*/}
 
-                    <iframe width="250" height="315" src="https://www.youtube.com/embed/DK7fcW4t3tg"
+
+                    <iframe width="250" height="200" src="https://www.youtube.com/embed/DK7fcW4t3tg"
                           frameBorder="0" rel="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;allowFullScreen"
                             allowFullScreen></iframe>
