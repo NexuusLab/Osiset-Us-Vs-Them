@@ -98,6 +98,8 @@ export function TemplatePage1() {
         }
     }
 
+
+
     return (
         <div className='Template-Page1'>
             {productsModal &&
@@ -210,13 +212,16 @@ export function TemplatePage1() {
                     {/*    videoLength={80}*/}
                     {/*    thumbnailUrl="https://www.youtube.com/watch?v=DK7fcW4t3tg"*/}
                     {/*/>*/}
-                    {/*<iframe  width="250" height="170" src="https://www.youtube.com/embed/DK7fcW4t3tg"*/}
-                    {/*        title="YouTube video player" frameBorder="0" rel="0"*/}
-                    {/*         allow="fullscreen;" allowfullscreen></iframe>*/}
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DK7fcW4t3tg"
-                            title="YouTube video player" frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen></iframe>
+
+                    {/*<iframe width="560" height="315" src="https://www.youtube.com/embed/DK7fcW4t3tg"*/}
+                    {/*        title="YouTube video player" frameBorder="0"*/}
+                    {/*        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
+                    {/*        allowFullScreen></iframe>*/}
+
+                    <video width="320" height="240" controls>
+                        <source src="https://www.youtube.com/watch?v=DK7fcW4t3tg" type="video/mp4"/>
+
+                    </video>
                 </MediaCard>
                 {toastProducts}
             </Page>
