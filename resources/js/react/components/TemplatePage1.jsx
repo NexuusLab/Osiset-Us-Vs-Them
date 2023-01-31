@@ -206,10 +206,14 @@ export function TemplatePage1() {
                         onAction: handleSelectProducts
                     }}
                     description={`Choose the template that best suits your needs. You will then be able to fully customize it.`}>
-                    <VideoThumbnail
-                        videoLength={80}
-                        thumbnailUrl="https://www.youtube.com/watch?v=DK7fcW4t3tg"
-                    />
+                    {/*<VideoThumbnail*/}
+                    {/*    videoLength={80}*/}
+                    {/*    thumbnailUrl="https://www.youtube.com/watch?v=DK7fcW4t3tg"*/}
+                    {/*/>*/}
+                    <video width="320" height="240" controls>
+                        <source src="https://www.youtube.com/watch?v=DK7fcW4t3tg" type="video/mp4"/>
+
+                    </video>
                 </MediaCard>
                 {toastProducts}
             </Page>
