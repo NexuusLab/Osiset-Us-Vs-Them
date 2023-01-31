@@ -210,7 +210,7 @@ export function TemplatePage1() {
                     {/*    videoLength={80}*/}
                     {/*    thumbnailUrl="https://www.youtube.com/watch?v=DK7fcW4t3tg"*/}
                     {/*/>*/}
-                    <iframe width="360" height="215" src="https://www.youtube.com/embed/DK7fcW4t3tg"
+                    <iframe allow="fullscreen;" width="250" height="170" src="https://www.youtube.com/embed/DK7fcW4t3tg"
                             title="YouTube video player" frameBorder="0" rel="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen></iframe>
