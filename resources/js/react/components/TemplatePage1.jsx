@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Page, Card, MediaCard, Modal, ResourceList, ResourceItem, Avatar, Text, EmptyState ,Toast} from '@shopify/polaris';
+import { Page, Card, MediaCard,VideoThumbnail, Modal, ResourceList, ResourceItem, Avatar, Text, EmptyState ,Toast} from '@shopify/polaris';
 import { AppContext } from '../Context'
 
 
@@ -198,32 +198,17 @@ export function TemplatePage1() {
                     </p>
                 </Card>
 
-                {/*<MediaCard*/}
-                {/*    title="Select Your Product"*/}
-                {/*    primaryAction={{*/}
-                {/*        content: 'Select Your Product',*/}
-                {/*        loading: btnloading ? true : false,*/}
-                {/*        onAction: handleSelectProducts*/}
-                {/*    }}*/}
-                {/*    description={`Choose the template that best suits your needs. You will then be able to fully customize it.`}>*/}
-                {/*    <img*/}
-                {/*        alt="table1"*/}
-                {/*        className='MediaCard-Img'*/}
-                {/*        src="https://i.ibb.co/QXcJW8V/image.png"*/}
-                {/*    />*/}
-                {/*</MediaCard>*/}
                 <MediaCard
-                    title="Turn your side-project into a business"
+                    title="Select Your Product"
                     primaryAction={{
-                        content: 'Learn more',
-                        onAction: () => {},
+                        content: 'Select Your Product',
+                        loading: btnloading ? true : false,
+                        onAction: handleSelectProducts
                     }}
-                    description={`In this course, you’ll learn how the Kular family turned their mom’s recipe book into a global business.`}
-                    popoverActions={[{content: 'Dismiss', onAction: () => {}}]}
-                >
+                    description={`Choose the template that best suits your needs. You will then be able to fully customize it.`}>
                     <VideoThumbnail
                         videoLength={80}
-                        thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"
+                        thumbnailUrl="https://www.youtube.com/watch?v=DK7fcW4t3tg"
                     />
                 </MediaCard>
                 {toastProducts}
