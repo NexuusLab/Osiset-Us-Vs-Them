@@ -210,10 +210,10 @@ export function TemplatePage1() {
                     {/*    videoLength={80}*/}
                     {/*    thumbnailUrl="https://www.youtube.com/watch?v=DK7fcW4t3tg"*/}
                     {/*/>*/}
-                    <video width="320" height="240" controls>
-                        <source src="https://www.youtube.com/watch?v=DK7fcW4t3tg" type="video/mp4"/>
-
-                    </video>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DK7fcW4t3tg"
+                            title="YouTube video player" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen></iframe>
                 </MediaCard>
                 {toastProducts}
             </Page>
