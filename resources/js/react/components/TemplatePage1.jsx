@@ -213,21 +213,11 @@ export function TemplatePage1() {
                     {/*    thumbnailUrl="https://www.youtube.com/watch?v=DK7fcW4t3tg"*/}
                     {/*/>*/}
 
-                    {/*<iframe width="560" height="315" src="https://www.youtube.com/embed/DK7fcW4t3tg"*/}
-                    {/*        title="YouTube video player" frameBorder="0"*/}
-                    {/*        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
-                    {/*        allowFullScreen></iframe>*/}
-                    <iframe
-                        style={{
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                            width: "100%",
-                            height: "100%"
-                        }}
-                        src="https://www.youtube.com/embed/DK7fcW4t3tg"
-                        frameBorder="0"
-                    />
+                    <iframe width="250" height="315" src="https://www.youtube.com/embed/DK7fcW4t3tg"
+                          frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;allowFullScreen"
+                            allowFullScreen></iframe>
+
                 </MediaCard>
                 {toastProducts}
             </Page>
