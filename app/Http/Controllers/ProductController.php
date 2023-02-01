@@ -174,6 +174,7 @@ class ProductController extends Controller
             $charge=Charge::where('user_id',$shop->id)->latest()->first();
             if($shop->count > $plan->usage_limit) {
                 $count = $shop->count - $plan->usage_limit;
+
                 $per_visitor_price=1/$plan->usage_limit;
 
                 if ($count > 0) {

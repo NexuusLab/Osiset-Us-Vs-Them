@@ -7,6 +7,7 @@ use App\Models\CompetitorName;
 use App\Models\ErrorLog;
 use App\Models\Product;
 use App\Models\ProductVariant;
+use App\Models\UsageCharge;
 use App\Models\User;
 use App\Models\UserTemplate;
 use App\Models\UserTemplateProduct;
@@ -69,6 +70,7 @@ class AppUninstalledJob implements ShouldQueue
             Charge::where('shop_id',$shop->id)->delete();
             UserTemplateProduct::where('shop_id',$shop->id)->delete();
           Product::where('shop_id',$shop->id)->delete();
+          UsageCharge::where('shop_id',$shop->id)->delete();
 
             User::where('id',$shop->id)->forceDelete();
 
