@@ -212,7 +212,7 @@ export function TemplatePage1() {
 
                     <iframe width="100%"  src="https://www.youtube.com/embed/DK7fcW4t3tg"
                           frameBorder="0" rel="0"
-                            allowFullScreen></iframe>
+                            allowfullscreen></iframe>
 
                 </MediaCard>
                 {toastProducts}
