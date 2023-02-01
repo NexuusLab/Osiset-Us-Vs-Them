@@ -51,6 +51,28 @@ class AfterAuthenticateJob implements ShouldQueue
                     }
                 }
         }
+        $get_metafield = $shop->api()->rest('get', '/admin/metafields.json');
+        foreach ($get_metafield['body']['container']['metafields'] as $meta) {
+            if ($meta['namespace'] == 'usvsthem') {
+                $delete = $shop->api()->rest('delete', '/admin/metafields/' . $meta['id'] . '.json');
+            }
+        }
+        $shop_metafield = $shop->api()->rest('post','/admin/metafields.json', [
+            "metafield" => array(
+                "key" => 'setting',
+                "value" => 1,
+                "type" => "number_integer",
+                "namespace" => "usvsthem"
+            )
+        ]);
+        if($shop_metafield['errors']==false){
+
+            $shop->metafield_id=$shop_metafield['body']['metafield']['id'];
+            $shop->save();
+
+        }
+
+
 
 
     }

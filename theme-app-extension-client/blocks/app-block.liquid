@@ -174,6 +174,14 @@
     </tr>
     </tfoot>
 </table>
+ {%  if shop.metafields.usvsthem.setting==1 %}
+    <div style="text-align: center;margin-top: 20px;">
+    <img width="20" height="20" src="https://cdn.shopify.com/s/files/applications/05bf2d0febcd476b5ae47580137627a6.png?1672990783" style="display: inline-block;vertical-align: middle;">
+    <p style="color: black;display: inline-block;margin: 0;">Powered by Us Vs Them
+        </p>
+        </div>
+        {% endif %}
+
 </div>
 </div>
 
@@ -353,7 +361,16 @@
         {% endfor %}
 
         </tbody>
-    </table></div>
+    </table>
+  {%  if shop.metafields.usvsthem.setting==1 %}
+    <div style="text-align: center;margin-top: 20px;">
+    <img width="20" height="20" src="https://cdn.shopify.com/s/files/applications/05bf2d0febcd476b5ae47580137627a6.png?1672990783" style="display: inline-block;vertical-align: middle;">
+    <p style="color: black;display: inline-block;margin: 0;">Powered by Us Vs Them
+        </p>
+        </div>
+        {% endif %}
+
+    </div>
 </div>
 
   {% elsif xc_settings and xc_settings.template_id == 3 %}
@@ -492,7 +509,16 @@
       {%  endfor %}
 
     </tbody>
-</table></div>
+</table>
+ {%  if shop.metafields.usvsthem.setting==1 %}
+    <div style="text-align: center;margin-top: 20px;">
+    <img width="20" height="20" src="https://cdn.shopify.com/s/files/applications/05bf2d0febcd476b5ae47580137627a6.png?1672990783" style="display: inline-block;vertical-align: middle;">
+    <p style="color: black;display: inline-block;margin: 0;">Powered by Us Vs Them
+        </p>
+        </div>
+        {% endif %}
+
+</div>
 </div>
   {% elsif xc_settings and xc_settings.template_id == 4 %}
   {{ 'template4.css' | asset_url | stylesheet_tag }}
@@ -617,7 +643,16 @@
           {% endfor %}
 
         </tbody>
-    </table></div>
+    </table>
+ {%  if shop.metafields.usvsthem.setting==1 %}
+    <div style="text-align: center;margin-top: 20px;">
+    <img width="20" height="20" src="https://cdn.shopify.com/s/files/applications/05bf2d0febcd476b5ae47580137627a6.png?1672990783" style="display: inline-block;vertical-align: middle;">
+    <p style="color: black;display: inline-block;margin: 0;">Powered by Us Vs Them
+        </p>
+        </div>
+        {% endif %}
+
+    </div>
  </div>
 {% endif %}
 
@@ -632,7 +667,7 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('xvxzx');
+console.log('update');
         $.ajax({
 
             url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
