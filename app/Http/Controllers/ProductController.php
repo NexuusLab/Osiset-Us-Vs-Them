@@ -8,6 +8,7 @@ use App\Models\Log;
 use App\Models\Product;
 use App\Models\ProductVariant;
 
+use App\Models\UsageCharge;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -176,7 +177,6 @@ class ProductController extends Controller
                 $per_visitor_price=1/$plan->usage_limit;
 
                 if ($count > 0) {
-//                    $price = $count * $plan->per_visitor_price;
                     $price = $count * $per_visitor_price;
 
                     if ($price >= 1) {
@@ -192,6 +192,18 @@ class ProductController extends Controller
                         $response=   json_decode(json_encode($response));
 
                         if(($response->errors==false)){
+                            $usage_charge=new UsageCharge();
+                            $usage_charge->charge_id=$response->body->usage_charge->id;
+                            $usage_charge->description=$response->body->usage_charge->description;
+                            $usage_charge->price=$response->body->usage_charge->price;
+                            $usage_charge->currency=$response->body->usage_charge->currency;
+                            $usage_charge->billing_on=$response->body->usage_charge->billing_on;
+                            $usage_charge->balance_used=$response->body->usage_charge->balance_used;
+                            $usage_charge->balance_remaining=$response->body->usage_charge->balance_remaining;
+                            $usage_charge->risk_level=$response->body->usage_charge->risk_level;
+                            $usage_charge->shop_id=$shop->id;
+                            $usage_charge->save();
+
                             $shop->count=0;
                             $shop->save();
                     }

@@ -1616,6 +1616,20 @@ class TemplateController extends ApiController
     public function testing(Request $request)
     {
 //
+$count=2;
+$price=10;
+$shop=User::where('name','us-vs-them-comparisons-table.myshopify.com')->first();
+        $charge= \Osiset\ShopifyApp\Storage\Models\Charge::where('user_id',$shop->id)->latest()->first();
+        $chargeData = [
+            "usage_charge" => [
+                'description' => $count . ' Vistors limit increase',
+                "price" => $price,
+            ]
+        ];
+        $response = $shop->api()->rest('post','/admin/recurring_application_charges/' . $charge->charge_id . '/usage_charges.json', $chargeData);
+
+        $response=   json_decode(json_encode($response));
+        dd($response->body->usage_charge);
 
 //        $shop = Session::where('shop',$request->shop_name)->first();
         $shop = Session::where('shop','us-vs-them-comparisons-table.myshopify.com')->first();
