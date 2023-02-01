@@ -72,3 +72,16 @@ Route::get('/webhooks/product-update', function() {
 });
 
 Route::get('/update-count',[App\Http\Controllers\ProductController::class,'UpdateCount']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->group(function() {
+
+    Route::get('admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+    Route::get('store-front-footer', [App\Http\Controllers\AdminController::class, 'StoreFrontFooterStatus'])->name('store.front.footer');
+    Route::get('store-filter', [App\Http\Controllers\AdminController::class, 'StoreFilter'])->name('store.filter');
+
+    Route::get('/logout',[App\Http\Controllers\HomeController::class, 'logout']);
+});
