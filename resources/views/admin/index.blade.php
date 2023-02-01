@@ -119,8 +119,8 @@
                                         <tr>
                                             <td>{{$user->name}} </td>
                                             <td>@if($user->has_plan){{$user->has_plan->name}} @endif</td>
-                                            <td>{{$user->count}}</td>
                                             <td>{{$count_charge}}</td>
+                                            <td>{{$user->count}}</td>
 
                                             <td>
                                                 <label class="form-check form-switch merchant-store-{{$user->id}}"    >
