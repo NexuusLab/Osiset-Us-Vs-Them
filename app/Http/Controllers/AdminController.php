@@ -25,50 +25,24 @@ class AdminController extends Controller
         $shop->footer_status=$request->store_front_status;
         $shop->save();
 
+        if($shop->metafield_id==null) {
 
-        $user_template_products = UserTemplateProduct::where('shop_id', $shop->id)->get();
-        if(count($user_template_products) > 0) {
-            $value = [
-                "footer_status" => $shop->footer_status,
-            ];
-            foreach ($user_template_products as $user_template_product) {
+            $shop_metafield = $shop->api()->rest('post','/admin/metafields.json', [
+                "metafield" => array(
+                    "key" => 'setting',
+                    "value" => $shop->footer_status,
+                    "type" => "number_integer",
+                    "namespace" => "usvsthem"
+                )
+            ]);
+       if($shop_metafield['errors']==false){
 
-                $product_metafield = $shop->api()->rest('put', '/admin/products/' . $user_template_product->shopify_product_id . '.json', [
-                    'product' => [
-                        "metafields" =>
-                            array(
-                                0 =>
-                                    array(
-                                        "key" => 'products',
-                                        "value" => json_encode($value),
-                                        "type" => "json_string",
-                                        "namespace" => "widget",
-                                    ),
-                            ),
-                    ]
-                ]);
-                if ($product_metafield['errors']=true) {
-                    $res = $shop->api()->rest('get', '/admin/products/' . $user_template_product->shopify_product_id . '/metafields.json');
-
-
-                    foreach ($res['body']['container']['metafields'] as $deliverydate) {
-
-                        if ($deliverydate['key'] == 'products') {
-
-                            $product_metafield = $shop->api()->rest('put', '/admin/metafields/'.$deliverydate['id'].'.json', [
-
-                                "metafield" =>
-
-                                    array(
-                                        "type" => "json_string",
-                                        "value" => json_encode($value),
-                                    ),
-                            ]);
-                        }
-                    }
-                }
-            }
+            $shop->metafield_id=$shop_metafield['body']['metafield']['id'];
+            $shop->save();
+            dd(2);
+       }
         }
+
         return response()->json(['status'=>$request->store_front_status]);
     }
 }
