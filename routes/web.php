@@ -75,7 +75,7 @@ Route::get('/update-count',[App\Http\Controllers\ProductController::class,'Updat
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function() {
 
