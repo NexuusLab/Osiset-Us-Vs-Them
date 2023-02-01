@@ -43,4 +43,13 @@ class User extends Authenticatable implements IShopModel
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function has_plan(){
+        return  $this->belongsTo('App\Models\Plan', 'plan_id', 'id');
+    }
+
+    public function has_usage_charge(){
+        return  $this->hasMany(UsageCharge::class, 'shop_id', 'id');
+    }
 }

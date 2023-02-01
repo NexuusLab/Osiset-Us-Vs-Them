@@ -95,6 +95,8 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 20%">Store Name</th>
+                                        <th style="width: 20%">Plan</th>
+                                        <th style="width: 20%">Usage Charge</th>
                                         <th style="width: 15%">Impression Count</th>
                                         <th style="width: 10%">Enable/disable footer</th>
 
@@ -104,10 +106,21 @@
                                     <tbody>
 
                                     @foreach($users as $index=> $user)
-
+                                        @php
+                                            $count_charge=0;
+                                        @endphp
+                                            @if(count($user->has_usage_charge) > 0)
+                                        @foreach($user->has_usage_charge as $usage_charge)
+                                            @php
+                                            $count_charge +=$usage_charge->price;
+                                            @endphp
+                                        @endforeach
+                                        @endif
                                         <tr>
                                             <td>{{$user->name}} </td>
+                                            <td>@if($user->has_plan){{$user->has_plan->name}} @endif</td>
                                             <td>{{$user->count}}</td>
+                                            <td>{{$count_charge}}</td>
 
                                             <td>
                                                 <label class="form-check form-switch merchant-store-{{$user->id}}"    >
