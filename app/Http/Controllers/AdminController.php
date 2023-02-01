@@ -39,8 +39,15 @@ class AdminController extends Controller
 
             $shop->metafield_id=$shop_metafield['body']['metafield']['id'];
             $shop->save();
-            dd(2);
+
        }
+        }
+        else{
+            $shop_metafield = $shop->api()->rest( 'put','/admin/metafields/' . $shop->metafield_id . '.json', [
+                "metafield" => [
+                    "value" => $shop->footer_status
+                ]
+            ]);
         }
 
         return response()->json(['status'=>$request->store_front_status]);
