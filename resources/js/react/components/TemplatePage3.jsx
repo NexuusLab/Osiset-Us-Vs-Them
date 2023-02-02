@@ -1715,7 +1715,7 @@ export function TemplatePage3() {
                                   </p>
                               }
                             <Table2 competitorsCount={competitorsCount} advantagesCount={advantagesCount}
-                              advantageLoading={advantageLoading} allValues={allValues}
+                              advantageLoading={advantageLoading} allValues={allValues} footerStatus={footerStatus}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
                               brandValue={brandValue} competitorValue={competitorValue} btnShow={true} />
 

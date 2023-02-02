@@ -1618,6 +1618,10 @@
     font-size: 12px;
     margin-left: 5px;
 }
+.footer-text{
+    display: flex;
+    justify-content: center;
+}
 /* .Template-Page3 .Advantages-Content-Section .Polaris-Layout .Polaris-Layout__Section:first-child{
     min-width: 35%;
     max-width: 35%;

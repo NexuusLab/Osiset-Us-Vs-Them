@@ -6,7 +6,7 @@ import {
 import logo from "./images/logo.png";
 
 
-export function Table2({ yourBrand, competitorName, advantageLoading, allValues,
+export function Table2({ yourBrand, competitorName, advantageLoading, allValues,footerStatus,
     competitorsCount, brandValue, competitorValue, advantagesCount, colorValues, btnShow }) {
 
     const [screen, setScreen] = useState(true)
@@ -209,20 +209,16 @@ export function Table2({ yourBrand, competitorName, advantageLoading, allValues,
                         >
                             {themeRowsPc}
                         </IndexTable>
-
-                        <span className="footer-text">
-                                    <img className="footer-logo" alt="logo" src={logo} />
-                                   <Text  variant="bodyMd" as="p" fontWeight="medium">
+                        {footerStatus &&
+                            <span className="footer-text">
+                                    <img className="footer-logo" alt="logo" src={logo}/>
+                                   <Text variant="bodyMd" as="p" fontWeight="medium">
                                Powered by Us Vs Them
                               </Text>
                                 </span>
+                        }
                     </div>
-                    <span className="footer-text">
-                                    <img className="footer-logo" alt="logo" src={logo} />
-                                   <Text  variant="bodyMd" as="p" fontWeight="medium">
-                               Powered by Us Vs Them
-                              </Text>
-                                </span>
+
 
                     <div className='Screen-Selection'>
                         {btnShow &&

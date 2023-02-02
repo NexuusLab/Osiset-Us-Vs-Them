@@ -1569,6 +1569,13 @@ class TemplateController extends ApiController
                 }
 
             }
+
+            if($footer_status==1){
+                $footer_status=true;
+            }
+            else{
+                $footer_status=false;
+            }
             $result = [];
 
             $colors_array = [];
