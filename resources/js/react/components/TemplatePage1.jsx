@@ -98,7 +98,9 @@ export function TemplatePage1() {
         }
     }
 
+    const [active, setActive] = useState(false);
 
+    const handleChange = useCallback(() => setActive(!active), [active]);
 
     return (
         <div className='Template-Page1'>
@@ -190,6 +192,22 @@ export function TemplatePage1() {
                 </Modal>
             }
 
+            <Modal
+                open={active}
+                onClose={handleChange}
+                title="See what youʼll be able to do with Order Tracking Page"
+            >
+                <Modal.Section>
+                    <div className="video-iframe">
+                        <iframe className='video'
+                                title='Youtube player'
+                                sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+                                src={`https://www.youtube.com/embed/DK7fcW4t3tg`}>
+                        </iframe>
+                    </div>
+                </Modal.Section>
+            </Modal>
+
             <Page title="Welcome to Us vs Them" fullWidth>
 
                 <Card sectioned>
@@ -200,6 +218,8 @@ export function TemplatePage1() {
                     </p>
                 </Card>
 
+
+
                 <MediaCard
                     title="Select Your Product"
                     primaryAction={{
@@ -209,11 +229,11 @@ export function TemplatePage1() {
                     }}
                     description={`Choose the template that best suits your needs. You will then be able to fully customize it.`}>
 
-
-                    <iframe width="100%"  src="https://www.youtube.com/embed/DK7fcW4t3tg"
-                          frameBorder="0" rel="0"
-                            allowFullScreen></iframe>
-
+                    <VideoThumbnail
+                        onClick={handleChange}
+                        videoLength={116}
+                        thumbnailUrl="https://i.ytimg.com/vi/DK7fcW4t3tg/hqdefault.jpg"
+                    />
                 </MediaCard>
                 {toastProducts}
             </Page>
