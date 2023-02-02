@@ -195,7 +195,7 @@ export function TemplatePage1() {
             <Modal
                 open={active}
                 onClose={handleChange}
-                title="See what youʼll be able to do with Order Tracking Page"
+                title="See what youʼll be able to do with Us vs Them"
             >
                 <Modal.Section>
                     <div className="video-iframe">
