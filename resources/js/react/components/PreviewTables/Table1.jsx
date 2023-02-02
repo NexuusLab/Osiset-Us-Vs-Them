@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Card, IndexTable, Icon, Stack } from '@shopify/polaris';
+import {Card, IndexTable, Icon, Stack, Text} from '@shopify/polaris';
 import { TickMinor, CancelMinor, MobileMajor, DesktopMajor } from '@shopify/polaris-icons';
+import logo from "./images/logo.png";
 
 export function Table1({ yourBrand, competitorName, advantageLoading, allValues,
     competitorsCount, brandValue, competitorValue, advantagesCount, colorValues, btnShow }) {
@@ -90,6 +91,15 @@ export function Table1({ yourBrand, competitorName, advantageLoading, allValues,
 
                             </IndexTable.Row>
                         </IndexTable>
+
+                        {footerStatus &&
+                            <span className="footer-text">
+                                    <img className="footer-logo" alt="logo" src={logo}/>
+                                   <Text variant="bodyMd" as="p" fontWeight="medium">
+                               Powered by Us Vs Them
+                              </Text>
+                                </span>
+                        }
                     </div>
 
 

@@ -1620,6 +1620,7 @@
 }
 .footer-text{
     display: flex;
+    margin-top: 5px;
     justify-content: center;
 }
 /* .Template-Page3 .Advantages-Content-Section .Polaris-Layout .Polaris-Layout__Section:first-child{

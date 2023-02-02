@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Card, IndexTable, Icon, Stack } from '@shopify/polaris';
+import {Card, IndexTable, Icon, Stack, Text} from '@shopify/polaris';
 import {
     MobileMajor, DesktopMajor, CircleTickMinor, CircleCancelMinor
 } from '@shopify/polaris-icons';
+import logo from "./images/logo.png";
 
 
 export function Table3({ yourBrand, competitorName, advantageLoading, allValues, valueType,
@@ -128,6 +129,14 @@ export function Table3({ yourBrand, competitorName, advantageLoading, allValues,
                         >
                             {themeRowsPc}
                         </IndexTable>
+                        {footerStatus &&
+                            <span className="footer-text">
+                                    <img className="footer-logo" alt="logo" src={logo}/>
+                                   <Text variant="bodyMd" as="p" fontWeight="medium">
+                               Powered by Us Vs Them
+                              </Text>
+                                </span>
+                        }
                     </div>
 
                     <div className='Screen-Selection'>
