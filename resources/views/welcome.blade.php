@@ -23,6 +23,20 @@
         <?php
         header("Content-Security-Policy: frame-ancestors https://".\Illuminate\Support\Facades\Auth::user()->name." https://admin.shopify.com;");
         ?>
+
+
+        <script type="text/javascript" >
+            window.$crisp=[];
+            window.CRISP_WEBSITE_ID="092322b8-62ae-452f-82be-5ee1a2db8eb5";
+            (function()
+                {
+                    d=document;
+                    s=d.createElement("script");
+                    s.src="https://client.crisp.chat/l.js";
+                    s.async=1;d.getElementsByTagName("head")[0].appendChild(s);
+                }
+            )();
+        </script>
     </head>
     <body>
 

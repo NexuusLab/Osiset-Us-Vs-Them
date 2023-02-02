@@ -17,6 +17,7 @@ export function TemplatePage3() {
   const [btnloading, setBtnLoading] = useState(false)
   const [templateName, setTemplateName] = useState();
   const [templateTitle, setTemplateTitle] = useState();
+  const [footerStatus, setFooterStatus] = useState();
   const [titleTemplateStatus, setTitleTemplateStatus] = useState(true);
 
     const [rangeValue, setRangeValue] = useState(40);
@@ -103,6 +104,7 @@ export function TemplatePage3() {
         setTemplateTitle(res.data.result.template_title)
           setRangeValue(res.data.result.title_font_size)
         setTemplateTitleWeight(res.data.result.title_font_weight)
+        setFooterStatus(res.data.result.footer_status)
         setYourBrand(res.data.result.brand)
         setCompetitorsCount(res.data.result.competators_count)
         setAdvantagesCount(res.data.result.advantages_count)
@@ -131,6 +133,10 @@ export function TemplatePage3() {
         alert('Error: ', error));
   }
 
+    const handleCrispChat = () => {
+        document.getElementById('crisp-chatbox').style.setProperty("display", "block", "important");
+        document.querySelector('[data-id="chat_opened"]').click();
+    }
   const getPlanData = async () => {
     const response = await axios
       .get(
@@ -533,6 +539,7 @@ export function TemplatePage3() {
                   ))}
                 </div>
               </Card>
+                <Button onClick={handleCrispChat}>Click</Button>
 
               <Card
                 sectioned

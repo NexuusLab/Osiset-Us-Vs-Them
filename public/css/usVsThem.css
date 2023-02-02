@@ -1604,6 +1604,10 @@
 .template-page-4{
     margin-top: 1rem;
 }
+
+#crisp-chatbox {
+    display: none !important;
+}
 /* .Template-Page3 .Advantages-Content-Section .Polaris-Layout .Polaris-Layout__Section:first-child{
     min-width: 35%;
     max-width: 35%;
