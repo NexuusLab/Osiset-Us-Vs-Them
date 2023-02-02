@@ -1562,10 +1562,10 @@ class TemplateController extends ApiController
             }
 
             $get_metafield = $shop->api()->rest('get', '/admin/metafields.json');
+            $footer_status=1;
             foreach ($get_metafield['body']['container']['metafields'] as $meta) {
                 if ($meta['namespace'] == 'usvsthem') {
-
-                    dd($meta);
+                  $footer_status=$meta['value'];
                 }
 
             }
@@ -1595,6 +1595,7 @@ class TemplateController extends ApiController
             $data = [
                 'template_name' => $user_template->template_name,
                 'template_title' => $user_template->title,
+                'footer_status'=>$footer_status,
                 'title_font_size' => $user_template->title_font_size,
                 'title_font_weight' => $user_template->title_font_weight,
                 "title_template_status" => $title_template_status,
