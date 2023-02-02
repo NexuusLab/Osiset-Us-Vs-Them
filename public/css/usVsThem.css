@@ -1631,6 +1631,9 @@
     max-height: 365px !important;
     max-width:50rem !important;
 }
+.Polaris-Modal-Dialog--sizeLarge .Polaris-Modal-CloseButton{
+    display: none !important;
+}
 /*.Polaris-Modal-Dialog__Modal{*/
 /*    max-width: 42.75rem;*/
 /*    max-height: 395px;*/
