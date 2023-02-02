@@ -1675,6 +1675,15 @@ export function TemplatePage3() {
                 </Card>
               }
 
+              <Card sectioned title="Watermark">
+                  <Text variant="bodyMd" as="p" fontWeight="medium">
+                      Please contact support to verify your store and remove our branding "Powered by Us vs Them" for Free
+                  </Text>
+                  <br/>
+                  <Button onClick={handleCrispChat} primary>Ask support to verify my store</Button>
+
+              </Card>
+
             </Layout.Section>
 
 
