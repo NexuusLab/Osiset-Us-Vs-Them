@@ -540,7 +540,7 @@ export function TemplatePage3() {
                   ))}
                 </div>
               </Card>
-                <Button onClick={handleCrispChat}>Click</Button>
+
 
               <Card
                 sectioned
