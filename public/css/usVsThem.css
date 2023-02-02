@@ -1608,6 +1608,16 @@
 #crisp-chatbox {
     display: none !important;
 }
+.footer-logo{
+    width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.footer-text .Polaris-Text--root{
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 5px;
+}
 /* .Template-Page3 .Advantages-Content-Section .Polaris-Layout .Polaris-Layout__Section:first-child{
     min-width: 35%;
     max-width: 35%;

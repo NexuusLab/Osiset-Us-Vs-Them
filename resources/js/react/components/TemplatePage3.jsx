@@ -1718,9 +1718,9 @@ export function TemplatePage3() {
                               advantageLoading={advantageLoading} allValues={allValues}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
                               brandValue={brandValue} competitorValue={competitorValue} btnShow={true} />
-                                <span>
-                                    <img alt="logo" src={logo} />
-                                   <Text variant="bodyMd" as="p" fontWeight="medium">
+                                <span className="footer-text">
+                                    <img className="footer-logo" alt="logo" src={logo} />
+                                   <Text  variant="bodyMd" as="p" fontWeight="medium">
                                Powered by Us Vs Them
                               </Text>
                                 </span>
