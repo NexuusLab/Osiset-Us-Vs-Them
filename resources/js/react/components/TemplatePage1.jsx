@@ -191,9 +191,9 @@ export function TemplatePage1() {
                     </Modal.Section>
                 </Modal>
             }
-
+        <div className='video-div'>
             <Modal
-                id="video-id"
+
                 large
                 open={active}
                 onClose={handleChange}
@@ -209,6 +209,7 @@ export function TemplatePage1() {
                     </div>
                 </Modal.Section>
             </Modal>
+        </div>
 
             <Page title="Welcome to Us vs Them" fullWidth>
 
