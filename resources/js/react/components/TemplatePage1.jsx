@@ -199,7 +199,7 @@ export function TemplatePage1() {
             >
                 <Modal.Section>
                     <div className="video-iframe">
-                        <iframe className='video'
+                        <iframe className='video' rel="0"
                                 title='Youtube player'
                                 sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
                                 src={`https://www.youtube.com/embed/DK7fcW4t3tg`}>
