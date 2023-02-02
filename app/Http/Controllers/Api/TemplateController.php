@@ -1456,7 +1456,7 @@ class TemplateController extends ApiController
 
     public function TemplateData(Request $request)
     {
-
+        $shop=User::where('name',$request->shop_name)->first();
         $user_template = UserTemplate::find($request->user_template_id);
 
         if ($user_template) {
@@ -1561,6 +1561,14 @@ class TemplateController extends ApiController
                 array_push($main_array,(object)$result_new);
             }
 
+            $get_metafield = $shop->api()->rest('get', '/admin/metafields.json');
+            foreach ($get_metafield['body']['container']['metafields'] as $meta) {
+                if ($meta['namespace'] == 'usvsthem') {
+
+                    dd($meta);
+                }
+
+            }
             $result = [];
 
             $colors_array = [];
