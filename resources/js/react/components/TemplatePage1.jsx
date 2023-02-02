@@ -193,6 +193,7 @@ export function TemplatePage1() {
             }
 
             <Modal
+                large
                 open={active}
                 onClose={handleChange}
                 title="See what youʼll be able to do with Us vs Them"
