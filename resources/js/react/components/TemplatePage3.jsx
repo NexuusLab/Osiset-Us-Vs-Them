@@ -1697,7 +1697,7 @@ export function TemplatePage3() {
                               </p>
                               }
                             <Table1 competitorsCount={competitorsCount} advantagesCount={advantagesCount}
-                              advantageLoading={advantageLoading} allValues={allValues}
+                              advantageLoading={advantageLoading} allValues={allValues} footerStatus={footerStatus}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
                               brandValue={brandValue} competitorValue={competitorValue} btnShow={true} />
                           </Card>
@@ -1734,7 +1734,7 @@ export function TemplatePage3() {
                                   </p>
                               }
                             <Table3 competitorsCount={competitorsCount} advantagesCount={advantagesCount}
-                              advantageLoading={advantageLoading} allValues={allValues} valueType={valueType}
+                              advantageLoading={advantageLoading} allValues={allValues} valueType={valueType} footerStatus={footerStatus}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
                               brandValue={brandValue} competitorValue={competitorValue} btnShow={true} />
                           </Card>
@@ -1752,7 +1752,7 @@ export function TemplatePage3() {
                                   </p>
                               }
                             <Table4 competitorsCount={competitorsCount} advantagesCount={advantagesCount}
-                              advantageLoading={advantageLoading} allValues={allValues} valueType={valueType}
+                              advantageLoading={advantageLoading} allValues={allValues} valueType={valueType} footerStatus={footerStatus}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
                               brandValue={brandValue} competitorValue={competitorValue} btnShow={true} />
                           </Card>
