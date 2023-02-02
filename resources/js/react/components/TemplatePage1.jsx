@@ -196,8 +196,8 @@ export function TemplatePage1() {
 
                 large
                 open={active}
-                onClose={handleChange}
-                title="See what youʼll be able to do with Us vs Them"
+                // onClose={handleChange}
+                // title="See what youʼll be able to do with Us vs Them"
             >
                 <Modal.Section>
                     <div className="video-iframe">
