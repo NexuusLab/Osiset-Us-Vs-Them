@@ -193,6 +193,7 @@ export function TemplatePage1() {
             }
 
             <Modal
+                id="video-id"
                 large
                 open={active}
                 onClose={handleChange}
