@@ -6,7 +6,7 @@ import {
 import logo from "./images/logo.png";
 
 
-export function Table4({ yourBrand, competitorName, advantageLoading, allValues, valueType,
+export function Table4({ yourBrand, competitorName, advantageLoading, allValues, valueType,footerStatus,
     competitorsCount, brandValue, competitorValue, advantagesCount, colorValues, btnShow }) {
 
     const [screen, setScreen] = useState(true)

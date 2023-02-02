@@ -3,7 +3,7 @@ import {Card, IndexTable, Icon, Stack, Text} from '@shopify/polaris';
 import { TickMinor, CancelMinor, MobileMajor, DesktopMajor } from '@shopify/polaris-icons';
 import logo from "./images/logo.png";
 
-export function Table1({ yourBrand, competitorName, advantageLoading, allValues,
+export function Table1({ yourBrand, competitorName, advantageLoading, allValues,footerStatus,
     competitorsCount, brandValue, competitorValue, advantagesCount, colorValues, btnShow }) {
 
     const [screen, setScreen] = useState(true)
