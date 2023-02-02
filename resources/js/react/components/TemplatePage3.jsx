@@ -3,6 +3,7 @@ import { Page, Layout, Text, Card, Select, Icon, Stack, TextField, Loading, Page
 import { CircleTickMajor, CircleCancelMajor } from '@shopify/polaris-icons';
 import { Table1, Table2, Table3, Table4, SideBarNavigation } from './index';
 import axios from "axios";
+import logo from '../components/PreviewTables/images/logo.png';
 // import createApp from '@shopify/app-bridge/development';
 // import { Redirect } from '@shopify/app-bridge/actions';
 import { AppContext } from '../Context'
@@ -1717,6 +1718,13 @@ export function TemplatePage3() {
                               advantageLoading={advantageLoading} allValues={allValues}
                               yourBrand={yourBrand} competitorName={competitorName} colorValues={colorValues}
                               brandValue={brandValue} competitorValue={competitorValue} btnShow={true} />
+                                <span>
+                                    <img alt="logo" src={logo} />
+                                   <Text variant="bodyMd" as="p" fontWeight="medium">
+                               Powered by Us Vs Them
+                              </Text>
+                                </span>
+
                           </Card>
                         )
 
