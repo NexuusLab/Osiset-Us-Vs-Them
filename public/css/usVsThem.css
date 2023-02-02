@@ -1625,14 +1625,20 @@
 }
 .video{
     width: 100%;
-    height: 320px;
+    height: 550px;
 }
 .Polaris-Modal-Dialog--sizeLarge{
-    max-height: 365px !important;
-    max-width:50rem !important;
+    max-height: 596px !important;
+    max-width:84rem !important;
 }
 .Polaris-Modal-Dialog--sizeLarge .Polaris-Modal-CloseButton{
     display: none !important;
+}
+.html5-main-video{
+    width: 1304px !important;
+    height: 550px !important;
+    left: 0px !important;
+    top: 0px !important;
 }
 /*.Polaris-Modal-Dialog__Modal{*/
 /*    max-width: 42.75rem;*/
