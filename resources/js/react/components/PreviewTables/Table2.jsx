@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Card, IndexTable, Icon, Stack } from '@shopify/polaris';
+import {Card, IndexTable, Icon, Stack, Text} from '@shopify/polaris';
 import {
     MobileMajor, DesktopMajor, CircleTickMinor, CircleCancelMinor,
 } from '@shopify/polaris-icons';
+import logo from "./images/logo.png";
 
 
 export function Table2({ yourBrand, competitorName, advantageLoading, allValues,
@@ -91,7 +92,7 @@ export function Table2({ yourBrand, competitorName, advantageLoading, allValues,
                             </span>
                         }
                     </IndexTable.Cell>
-                    
+
                     {[...Array(Number(competitorsCount))]?.map((item2, index2) => (
                         <IndexTable.Cell>
                             {competitorValue[index1] && competitorValue[index1][index2] ?
@@ -208,8 +209,20 @@ export function Table2({ yourBrand, competitorName, advantageLoading, allValues,
                         >
                             {themeRowsPc}
                         </IndexTable>
-                    </div>
 
+                        <span className="footer-text">
+                                    <img className="footer-logo" alt="logo" src={logo} />
+                                   <Text  variant="bodyMd" as="p" fontWeight="medium">
+                               Powered by Us Vs Them
+                              </Text>
+                                </span>
+                    </div>
+                    <span className="footer-text">
+                                    <img className="footer-logo" alt="logo" src={logo} />
+                                   <Text  variant="bodyMd" as="p" fontWeight="medium">
+                               Powered by Us Vs Them
+                              </Text>
+                                </span>
 
                     <div className='Screen-Selection'>
                         {btnShow &&
