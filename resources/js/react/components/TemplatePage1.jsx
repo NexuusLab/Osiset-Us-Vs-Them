@@ -191,7 +191,7 @@ export function TemplatePage1() {
                     </Modal.Section>
                 </Modal>
             }
-        <div className='video-div'>
+
             <Modal
 
                 large
@@ -209,7 +209,7 @@ export function TemplatePage1() {
                     </div>
                 </Modal.Section>
             </Modal>
-        </div>
+
 
             <Page title="Welcome to Us vs Them" fullWidth>
 
