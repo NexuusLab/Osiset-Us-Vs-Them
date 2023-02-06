@@ -1605,9 +1605,9 @@
     margin-top: 1rem;
 }
 
-#crisp-chatbox {
-    display: none !important;
-}
+/*#crisp-chatbox {*/
+/*    display: none !important;*/
+/*}*/
 .footer-logo{
     width: 20px;
     display: inline-block;
