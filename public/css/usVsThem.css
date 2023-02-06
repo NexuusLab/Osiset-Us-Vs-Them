@@ -1606,7 +1606,7 @@
 }
 
 #crisp-chatbox {
-    display: block !important;
+    display: none !important;
 }
 .footer-logo{
     width: 20px;
