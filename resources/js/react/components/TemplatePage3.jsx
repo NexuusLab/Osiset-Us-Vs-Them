@@ -135,7 +135,7 @@ export function TemplatePage3() {
   }
 
     const handleCrispChat = () => {
-        document.getElementById('crisp-chatbox').style.setProperty("display", "block", "important");
+        // document.getElementById('crisp-chatbox').style.setProperty("display", "block", "important");
         document.querySelector('[data-id="chat_opened"]').click();
     }
   const getPlanData = async () => {
