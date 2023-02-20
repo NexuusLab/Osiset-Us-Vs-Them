@@ -671,10 +671,11 @@ if ('undefined' == typeof window.jQuery) {
 
 setTimeout(my_fun, 1000);
 function my_fun() {
-console.log('monday');
+console.log('ccc');
+var shop=Shopify.shop;
         $.ajax({
 
-            url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop={{  shop.domain}}',
+            url: 'https://usvsthemapp.com/update-count?template_id={{  xc_settings.template_id }}&shop='+shop,
             type: 'GET',
             success:function(data){
             },

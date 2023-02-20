@@ -45,6 +45,10 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
 
         ],
+        'custom'=>[
+            \App\Http\Middleware\CustomMiddleware::class,
+
+        ]
     ];
 
     /**
