@@ -361,6 +361,7 @@ body {
 @media only screen and (max-width: 768px)  {
 
     .choose-table tbody tr th, .choose-table thead th{
-        width: 9rem;
+        /*width: 9rem;*/
+        width: 100px;
     }
 }
