@@ -613,7 +613,7 @@ export function Dashboard() {
 
                                                             {additionalPrice != 0 &&
                                                                 < span >
-                                                                {`You will be charged additionally ${additionalPrice} after 30 days`}
+                                                                {`You will be charged additionally $${additionalPrice} after 30 days`}
                                                                 </span>
                                                             }
                                                         </div>
