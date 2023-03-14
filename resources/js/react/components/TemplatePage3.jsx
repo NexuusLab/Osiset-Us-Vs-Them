@@ -124,10 +124,10 @@ export function TemplatePage3() {
         setFixedTable(res.data.result.items)
         setTitleTemplateStatus(res.data.result.title_template_status)
 
+          setTimeout(() => {
+              setLoading(false);
+          }, 500);
 
-        setTimeout(() => {
-          setLoading(false);
-        }, 500);
 
       })
       .catch(error =>

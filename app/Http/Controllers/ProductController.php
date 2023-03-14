@@ -172,44 +172,46 @@ class ProductController extends Controller
         foreach ($shops as $shop){
 
             $charge=Charge::where('user_id',$shop->id)->latest()->first();
-            if($shop->count > $plan->usage_limit) {
-                $count = $shop->count - $plan->usage_limit;
+            if($charge!=null) {
+                if ($shop->count > $plan->usage_limit) {
+                    $count = $shop->count - $plan->usage_limit;
 
-                $per_visitor_price=1/$plan->usage_limit;
+                    $per_visitor_price = 1 / $plan->usage_limit;
 
-                if ($count > 0) {
-                    $price = $count * $per_visitor_price;
+                    if ($count > 0) {
+                        $price = $count * $per_visitor_price;
 
-                    if ($price >= 1) {
+                        if ($price >= 1) {
 
-                        $chargeData = [
-                            "usage_charge" => [
-                                'description' => $count . ' Vistors limit increase',
-                                "price" => $price,
-                            ]
-                        ];
-                        $response = $shop->api()->rest('post','/admin/recurring_application_charges/' . $charge->charge_id . '/usage_charges.json', $chargeData);
+                            $chargeData = [
+                                "usage_charge" => [
+                                    'description' => $count . ' Vistors limit increase',
+                                    "price" => $price,
+                                ]
+                            ];
+                            $response = $shop->api()->rest('post', '/admin/recurring_application_charges/' . $charge->charge_id . '/usage_charges.json', $chargeData);
 
-                        $response=   json_decode(json_encode($response));
+                            $response = json_decode(json_encode($response));
 
-                        if(($response->errors==false)){
-                            $usage_charge=new UsageCharge();
-                            $usage_charge->charge_id=$response->body->usage_charge->id;
-                            $usage_charge->description=$response->body->usage_charge->description;
-                            $usage_charge->price=$response->body->usage_charge->price;
-                            $usage_charge->currency=$response->body->usage_charge->currency;
-                            $usage_charge->billing_on=$response->body->usage_charge->billing_on;
-                            $usage_charge->balance_used=$response->body->usage_charge->balance_used;
-                            $usage_charge->balance_remaining=$response->body->usage_charge->balance_remaining;
-                            $usage_charge->risk_level=$response->body->usage_charge->risk_level;
-                            $usage_charge->shop_id=$shop->id;
-                            $usage_charge->save();
+                            if (($response->errors == false)) {
+                                $usage_charge = new UsageCharge();
+                                $usage_charge->charge_id = $response->body->usage_charge->id;
+                                $usage_charge->description = $response->body->usage_charge->description;
+                                $usage_charge->price = $response->body->usage_charge->price;
+                                $usage_charge->currency = $response->body->usage_charge->currency;
+                                $usage_charge->billing_on = $response->body->usage_charge->billing_on;
+                                $usage_charge->balance_used = $response->body->usage_charge->balance_used;
+                                $usage_charge->balance_remaining = $response->body->usage_charge->balance_remaining;
+                                $usage_charge->risk_level = $response->body->usage_charge->risk_level;
+                                $usage_charge->shop_id = $shop->id;
+                                $usage_charge->save();
 
-                            $shop->count=0;
-                            $shop->save();
+                                $shop->count = 0;
+                                $shop->save();
+                            }
+                        }
                     }
                 }
-            }
             }
         }
     }

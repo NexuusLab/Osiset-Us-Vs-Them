@@ -1708,3 +1708,7 @@
     }
 
 } */
+
+.ProgressBar-Section .Polaris-Stack{
+    justify-content: space-between;
+}

@@ -34,6 +34,7 @@ export function Dashboard() {
     const [planTrialDays, setPlanTrialDays] = useState()
     const [planUsageLimit, setPlanUsageLimit] = useState()
     const [planExpireBanner, setPlanExpireBanner] = useState(true)
+    const [additionalPrice, setAdditionalPrice] = useState()
 
     const [products, setProducts] = useState([])
     const [assignedItems, setAssignedItems] = useState([]);
@@ -89,6 +90,7 @@ export function Dashboard() {
                 setPlanTrialDays(res.data.result.trial_days)
                 setPlanUsageLimit(res.data.result.usage_limit)
                 setOnlineStoreUrl(res.data.result.link)
+                setAdditionalPrice(res.data.result.additional_price)
                 setLoading(false)
             })
             .catch(error =>
@@ -598,11 +600,24 @@ export function Dashboard() {
                                         {planCount > 10000 ?
                                             <Card sectioned>
                                                 <Text variant="headingLg" as="h5">
+                                                    <Stack >
+                                                        <div>
                                                     Plan
                                                     {/*{planName}*/}
                                                     <span>
                                                         (Additional charges $0.0001/view)-Reset in 12 days
                                                     </span>
+                                                            </div>
+
+                                                        <div>
+
+                                                            {additionalPrice != 0 &&
+                                                                < span >
+                                                                {`You will be charged additionally ${additionalPrice} after 30 days`}
+                                                                </span>
+                                                            }
+                                                        </div>
+                                                    </Stack>
                                                 </Text>
                                                 <Text variant="bodyMd" as="p">
                                                     {/*{`Get Upto ${planUsageLimit} monthly views`}*/}

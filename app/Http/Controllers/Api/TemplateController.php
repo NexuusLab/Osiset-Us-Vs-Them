@@ -1859,7 +1859,6 @@ dd(2);
     public function CheckTrial(Request $request){
 
         $shop = User::where('name', $request->shop_name)->first();
-
         $charge=Charge::where('user_id',$shop->id)->latest()->first();
 
         if($request->user_template_id) {
@@ -1935,7 +1934,14 @@ dd(2);
         $product=Product::where('shop_id',$shop->id)->first();
         $current_date_time = now();
         $trial_date=Carbon::parse($charge->trial_ends_on);
-
+        $u_count= $shop->count - $plan->usage_limit;
+        if ($u_count > 0) {
+            $per_visitor_price = 1 / $plan->usage_limit;
+            $u_price = $u_count * $per_visitor_price;
+        }
+        else{
+            $u_price=0;
+        }
 
         $difference = $current_date_time->diffInDays($trial_date,false);
 
@@ -1947,10 +1953,10 @@ dd(2);
                 'trial_expiry_date'=>$charge->trial_ends_on,
                 'app_status'=>$app_status,
                 'app_error'=>$error_msg,
-                'link'=>$link
+                'link'=>$link,
+                'additional_price'=>(string)((float)$u_price)
             ];
             $result= $data;
-
         return $this->response($result, 200);
     }
 
