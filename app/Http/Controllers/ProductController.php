@@ -176,7 +176,8 @@ class ProductController extends Controller
                 if ($shop->count > $plan->usage_limit) {
                     $count = $shop->count - $plan->usage_limit;
 
-                    $per_visitor_price = 1 / $plan->usage_limit;
+//                    $per_visitor_price = 1 / $plan->usage_limit;          //before it was 1/10000=0.0001
+                    $per_visitor_price = 10 / $plan->usage_limit;            //now it is 10/10000=0.001
 
                     if ($count > 0) {
                         $price = $count * $per_visitor_price;
