@@ -28,21 +28,21 @@ class ProductController extends Controller
     public function SyncProdcuts($shop_name,$next=null){
 
         $shop = User::where('name',$shop_name)->first();
+        if($shop) {
+            $products = $shop->api()->rest('GET', '/admin/products.json', [
+                'limit' => 250,
+                'page_info' => $next
+            ]);
+            $products = json_decode(json_encode($products));
 
-        $products = $shop->api()->rest('GET', '/admin/products.json', [
-            'limit' => 250,
-            'page_info' => $next
-        ]);
-        $products = json_decode(json_encode($products));
+            foreach ($products->body->products as $product) {
 
-        foreach ($products->body->products as $product) {
-
-            $this->createShopifyProducts($product,$shop);
+                $this->createShopifyProducts($product, $shop);
+            }
+            if (isset($products->link->next)) {
+                $this->SyncProdcuts($products->link->next);
+            }
         }
-        if (isset($products->link->next)) {
-            $this->SyncProdcuts($products->link->next);
-        }
-
     }
 
     public function createShopifyProducts($product, $shop)
