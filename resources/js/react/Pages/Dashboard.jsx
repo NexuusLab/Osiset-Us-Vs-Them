@@ -605,7 +605,7 @@ export function Dashboard() {
                                                     Plan
                                                     {/*{planName}*/}
                                                     <span>
-                                                        (Additional charges $0.0001/view)-Reset in 12 days
+                                                        (Additional charges $0.001/view)-Reset in 12 days
                                                     </span>
                                                             </div>
 
