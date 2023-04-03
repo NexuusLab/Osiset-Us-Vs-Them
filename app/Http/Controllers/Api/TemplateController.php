@@ -1936,7 +1936,8 @@ dd(2);
         $trial_date=Carbon::parse($charge->trial_ends_on);
         $u_count= $shop->count - $plan->usage_limit;
         if ($u_count > 0) {
-            $per_visitor_price = 1 / $plan->usage_limit;
+            $per_visitor_price = 10 / $plan->usage_limit;
+//            $per_visitor_price = 1 / $plan->usage_limit;
             $u_price = $u_count * $per_visitor_price;
         }
         else{
